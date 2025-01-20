@@ -1,9 +1,10 @@
 package com.jacinthocaio.domain;
 
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
-import lombok.*;
-
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
 public class Anime {
     private Long id;
     private String name;
+    private LocalDateTime createdAt;
     private static List<Anime> animes = new ArrayList<>();
 
     static {
