@@ -1,6 +1,9 @@
 package com.jacinthocaio.controller;
 
 import com.jacinthocaio.domain.Producer;
+import com.jacinthocaio.mapper.ProducerMapper;
+import com.jacinthocaio.request.ProducerPostRequest;
+import com.jacinthocaio.response.ProducerGetResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -8,6 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -15,6 +19,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @RequestMapping("v1/producers")
 @Slf4j
 public class ProducerController {
+        private static final ProducerMapper MAPPER = ProducerMapper.INSTANCE;
 
 //    @GetMapping()
 //    public List<String> listAll() throws InterruptedException {
@@ -44,14 +49,10 @@ public class ProducerController {
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
-//    headers = "x-api-key=1234"
-    public ResponseEntity<Producer> save(@RequestBody Producer producer) {
-//        @RequestHeader HttpHeaders headers
-//        log.info("save producer " + producer);
-        producer.setId(ThreadLocalRandom.current().nextLong(100));
-        Producer.getProducers().add(producer);
-//        return ResponseEntity.ok(producer)
-//        return ResponseEntity.noContent().build()("Mudar o retorno para void")
-        return ResponseEntity.status(HttpStatus.CREATED).body(producer);
+    public ResponseEntity<ProducerGetResponse> save(@RequestBody ProducerPostRequest producerPostRequest) {
+        var producer1 = MAPPER.toProducer(producerPostRequest);
+        var getResponse = MAPPER.toProducerGetResponse(producer1);
+        Producer.getProducers().add(producer1);
+        return ResponseEntity.status(HttpStatus.CREATED).body(getResponse);
     }
 }

@@ -4,11 +4,9 @@ import com.jacinthocaio.domain.Anime;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.stream.Collectors;
+
 
 @RestController
 @RequestMapping("v1/anime")

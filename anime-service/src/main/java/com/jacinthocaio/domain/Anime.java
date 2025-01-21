@@ -1,46 +1,26 @@
 package com.jacinthocaio.domain;
 
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Anime {
     private Long id;
     private String name;
-    private LocalDateTime createdAt;
     private static List<Anime> animes = new ArrayList<>();
 
     static {
-        var anime1 = new Anime(1L, "Caio");
-        var anime2 = new Anime(2L, "Lucca Jacintho");
-        var anime3 = new Anime(3L, "Rivanda Mota");
+        var anime1 = Anime.builder().id(1L).name("Anime1").build();
+        var anime2 = Anime.builder().id(2L).name("Anime2").build();
+        var anime3 = Anime.builder().id(3L).name("Anime3").build();
         animes.addAll(List.of(anime1, anime2, anime3));
-    }
-
-    public Anime(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public static List<Anime> getAnimes() {
