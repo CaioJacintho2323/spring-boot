@@ -4,6 +4,9 @@ spring:
   threads:
     virtual:
       enabled: true
+logging:
+  level:
+    root: debug
 server:
     servlet:
       context-path: /
