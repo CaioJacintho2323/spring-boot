@@ -3,6 +3,7 @@ package com.jacinthocaio.controller;
 import com.jacinthocaio.domain.Anime;
 import com.jacinthocaio.mapper.ProducerMapper;
 import com.jacinthocaio.request.AnimePostRequest;
+import com.jacinthocaio.request.AnimePutRequest;
 import com.jacinthocaio.request.ProducerPostRequest;
 import com.jacinthocaio.response.AnimeGetResponse;
 import com.jacinthocaio.response.AnimePostResponse;
@@ -11,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.jacinthocaio.mapper.AnimeMapper;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -52,7 +54,7 @@ public class AnimeController {
                 .filter(a -> a.getId().equals(id))
                 .findFirst()
                 .map(MAPPER::toAnimeGetResponse)
-                .orElse(null);
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Anime not found"));
         return ResponseEntity.ok(anime);
     }
 
@@ -64,4 +66,33 @@ public class AnimeController {
         Anime.getAnimes().add(postRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
+        log.debug("Request to delete anime by id: {}", id);
+        var anime = Anime.getAnimes()
+                .stream()
+                .filter(a -> a.getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Anime not found"));
+        Anime.getAnimes().remove(anime);
+        return ResponseEntity.noContent().build();
+    }
+
+
+    @PutMapping()
+    public ResponseEntity<Void> update (@RequestBody AnimePutRequest request) {
+        log.debug("Request to update anime : {}", request);
+        var animeToRemove = Anime.getAnimes()
+                .stream()
+                .filter(a -> a.getId().equals(request.getId()))
+                .findFirst()
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Anime not found"));
+        var animeUpdate = MAPPER.toAnime(request);
+        Anime.getAnimes().remove(animeToRemove);
+        Anime.getAnimes().add(animeUpdate);
+        return ResponseEntity.noContent().build();
+    }
+
+
 }

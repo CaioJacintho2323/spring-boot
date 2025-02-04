@@ -12,7 +12,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Anime {
+    @EqualsAndHashCode.Include
     private Long id;
     private String name;
     private static List<Anime> animes = new ArrayList<>();

@@ -3,6 +3,7 @@ package com.jacinthocaio.mapper;
 import com.jacinthocaio.domain.Anime;
 
 import com.jacinthocaio.request.AnimePostRequest;
+import com.jacinthocaio.request.AnimePutRequest;
 import com.jacinthocaio.response.AnimeGetResponse;
 import com.jacinthocaio.response.AnimePostResponse;
 import org.mapstruct.Mapper;
@@ -22,4 +23,6 @@ public interface AnimeMapper {
     AnimeGetResponse toAnimeGetResponse(Anime anime);
 
     List<AnimeGetResponse> toAnimeGetResponseList(List<Anime> animes);
+
+    Anime toAnime(AnimePutRequest request);
 }
