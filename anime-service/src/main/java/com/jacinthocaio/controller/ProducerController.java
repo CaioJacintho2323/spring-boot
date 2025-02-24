@@ -57,9 +57,9 @@ public class ProducerController {
 
         var producerSaved = service.save(producer);
 
-        var producerGetResponse = mapper.toProducerGetResponse(producerSaved);
+        var producerPostResponse = mapper.toProducerGetResponse(producerSaved);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(producerGetResponse);
+        return ResponseEntity.status(HttpStatus.CREATED).body(producerPostResponse);
     }
 
     @DeleteMapping("{id}")
