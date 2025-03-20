@@ -20,7 +20,7 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 public class ProducerController {
-    private final ProducerMapper  mapper;
+    private final ProducerMapper mapper;
     private final ProducerService service;
 
 //    @GetMapping()

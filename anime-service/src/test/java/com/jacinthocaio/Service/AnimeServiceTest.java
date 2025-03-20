@@ -1,5 +1,6 @@
 package com.jacinthocaio.Service;
 
+import com.jacinthocaio.commons.AnimeUtils;
 import com.jacinthocaio.domain.Anime;
 import com.jacinthocaio.domain.Anime;
 import com.jacinthocaio.repository.AnimeHardCodedRepository;
@@ -31,14 +32,12 @@ class AnimeServiceTest {
     private AnimeHardCodedRepository repository;
 
     private List<Anime> animesList;
+    @InjectMocks
+    private AnimeUtils animeUtils;
 
     @BeforeEach
     void init(){
-        var ufotable = Anime.builder().id(1L).name("ufotable").build();
-        var witStudio = Anime.builder().id(2L).name("witStudio").build();
-        var studioGhibli = Anime.builder().id(3L).name("studioGhibli").build();
-        animesList = new ArrayList<>(List.of(ufotable, witStudio, studioGhibli));
-
+        animesList = animeUtils.newProducerList();
     }
 
     @Test

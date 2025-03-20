@@ -1,5 +1,6 @@
 package com.jacinthocaio.repository;
 
+import com.jacinthocaio.commons.AnimeUtils;
 import com.jacinthocaio.domain.Anime;
 import com.jacinthocaio.domain.Producer;
 import org.junit.jupiter.api.*;
@@ -27,14 +28,12 @@ class AnimeHardCodedRepositoryTest {
 
 
     private List<Anime> animeList;
+    @InjectMocks
+    private AnimeUtils animeUtils;
 
     @BeforeEach
     void init(){
-        var fullmetal = Anime.builder().id(1L).name("fullmetal").build();
-        var witStudio = Anime.builder().id(2L).name("witStudio").build();
-        var studioGhibli = Anime.builder().id(3L).name("studioGhibli").build();
-        animeList = new ArrayList<>(List.of(fullmetal, witStudio, studioGhibli));
-
+        animeList = animeUtils.newProducerList();
     }
     
 

@@ -1,0 +1,1206 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x000000013754d9b4, pid=90542, tid=8707
+#
+# JRE version: Java(TM) SE Runtime Environment (22.0+36) (build 22+36-2370)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (22+36-2370, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, bsd-aarch64)
+# Problematic frame:
+# j  java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(Ljava/lang/Object;)Ljava/lang/Object;+15 java.base@22
+#
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:62893,suspend=y,server=n -ea -Dspring.profiles.active=test -Didea.test.cyclic.buffer.size=1048576 -javaagent:/Users/caiojacintho/Library/Caches/JetBrains/IntelliJIdea2024.2/captureAgent/debugger-agent.jar -Dkotlinx.coroutines.debug.enable.creation.stack.trace=false -Ddebugger.agent.enable.coroutines=true -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 com.intellij.rt.junit.JUnitStarter -ideVersion5 -junit5 com.jacinthocaio.user_service.controller.UsercontrollerTest,save_CreatesUser_WhenSuccessful
+
+Host: "MacBookAir10,1" arm64, 8 cores, 8G, Darwin 23.6.0, macOS 14.6.1 (23G93)
+Time: Wed Mar 12 21:48:09 2025 -03 elapsed time: 1078.974925 seconds (0d 0h 17m 58s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000012280d800):  JavaThread "main"             [_thread_in_Java, id=8707, stack(0x000000016b0d0000,0x000000016b2d3000) (2060K)]
+
+Stack: [0x000000016b0d0000,0x000000016b2d3000],  sp=0x000000016b2cfef0,  free space=2047k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+j  java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(Ljava/lang/Object;)Ljava/lang/Object;+15 java.base@22
+J 1764 c1 jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance([Ljava/lang/Object;)Ljava/lang/Object; java.base@22 (130 bytes) @ 0x0000000130384ec0 [0x00000001303835c0+0x0000000000001900]
+J 1190 c1 java.lang.reflect.Constructor.newInstanceWithCaller([Ljava/lang/Object;ZLjava/lang/Class;)Ljava/lang/Object; java.base@22 (51 bytes) @ 0x000000013025a0e8 [0x0000000130259e80+0x0000000000000268]
+J 1766 c1 java.lang.reflect.Constructor.newInstance([Ljava/lang/Object;)Ljava/lang/Object; java.base@22 (34 bytes) @ 0x0000000130389bf0 [0x0000000130389a40+0x00000000000001b0]
+j  org.junit.platform.commons.util.ReflectionUtils.newInstance(Ljava/lang/reflect/Constructor;[Ljava/lang/Object;)Ljava/lang/Object;+15
+j  org.junit.jupiter.engine.execution.ConstructorInvocation.proceed()Ljava/lang/Object;+8
+j  org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed()Ljava/lang/Object;+8
+j  org.junit.jupiter.api.extension.InvocationInterceptor.interceptTestClassConstructor(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;)Ljava/lang/Object;+1
+j  org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor$$Lambda+0x00003c000114e660.apply(Lorg/junit/jupiter/api/extension/InvocationInterceptor;Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;)Ljava/lang/Object;+5
+j  org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(Lorg/junit/jupiter/engine/execution/InterceptingExecutableInvoker$ReflectiveInterceptorCall;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/api/extension/InvocationInterceptor;Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;)Ljava/lang/Object;+6
+j  org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$$Lambda+0x00003c000114f0f8.apply(Lorg/junit/jupiter/api/extension/InvocationInterceptor;Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;)Ljava/lang/Object;+14
+j  org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed()Ljava/lang/Object;+12
+j  org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;)Ljava/lang/Object;+1
+j  org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/engine/execution/InvocationInterceptorChain$InterceptorCall;Ljava/util/List;)Ljava/lang/Object;+24
+j  org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/engine/extension/ExtensionRegistry;Lorg/junit/jupiter/engine/execution/InvocationInterceptorChain$InterceptorCall;)Ljava/lang/Object;+31
+j  org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/engine/extension/ExtensionRegistry;Lorg/junit/jupiter/engine/execution/InterceptingExecutableInvoker$ReflectiveInterceptorCall;)Ljava/lang/Object;+15
+j  org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(Ljava/lang/reflect/Constructor;Ljava/util/Optional;Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/engine/extension/ExtensionRegistry;Lorg/junit/jupiter/engine/execution/InterceptingExecutableInvoker$ReflectiveInterceptorCall;)Ljava/lang/Object;+35
+j  org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestClassConstructor(Ljava/util/Optional;Lorg/junit/jupiter/engine/extension/ExtensionRegistry;Lorg/junit/jupiter/api/extension/ExtensionContext;)Ljava/lang/Object;+22
+j  org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateTestClass(Ljava/util/Optional;Lorg/junit/jupiter/engine/extension/ExtensionRegistry;Lorg/junit/jupiter/api/extension/ExtensionContext;)Lorg/junit/jupiter/api/extension/TestInstances;+52
+j  org.junit.jupiter.engine.descriptor.ClassTestDescriptor.instantiateTestClass(Lorg/junit/jupiter/engine/execution/JupiterEngineExecutionContext;Lorg/junit/jupiter/engine/extension/ExtensionRegistry;Lorg/junit/jupiter/engine/extension/ExtensionRegistrar;Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector;)Lorg/junit/jupiter/api/extension/TestInstances;+7
+j  org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(Lorg/junit/jupiter/engine/execution/JupiterEngineExecutionContext;Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/engine/extension/ExtensionRegistry;Lorg/junit/jupiter/engine/extension/ExtensionRegistrar;Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector;)Lorg/junit/jupiter/api/extension/TestInstances;+8
+j  org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(Lorg/junit/jupiter/engine/execution/JupiterEngineExecutionContext;Lorg/junit/jupiter/engine/descriptor/ClassExtensionContext;Lorg/junit/jupiter/engine/extension/ExtensionRegistry;Lorg/junit/jupiter/engine/extension/ExtensionRegistrar;Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector;)Lorg/junit/jupiter/api/extension/TestInstances;+8
+j  org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor$$Lambda+0x00003c000114bb00.get()Ljava/lang/Object;+24
+j  java.util.Optional.orElseGet(Ljava/util/function/Supplier;)Ljava/lang/Object;+15 java.base@22
+j  org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(Lorg/junit/jupiter/engine/descriptor/ClassExtensionContext;Lorg/junit/jupiter/engine/execution/JupiterEngineExecutionContext;Lorg/junit/jupiter/engine/extension/ExtensionRegistry;Lorg/junit/jupiter/engine/extension/ExtensionRegistrar;Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector;)Lorg/junit/jupiter/api/extension/TestInstances;+17
+j  org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor$$Lambda+0x00003c00010b03f0.getTestInstances(Lorg/junit/jupiter/engine/extension/ExtensionRegistry;Lorg/junit/jupiter/engine/extension/ExtensionRegistrar;Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector;)Lorg/junit/jupiter/api/extension/TestInstances;+15
+j  org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(Lorg/junit/jupiter/engine/extension/MutableExtensionRegistry;Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector;)Lorg/junit/jupiter/api/extension/TestInstances;+4
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(Lorg/junit/jupiter/engine/execution/JupiterEngineExecutionContext;Lorg/junit/jupiter/engine/extension/MutableExtensionRegistry;Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector;Lorg/junit/jupiter/engine/descriptor/MethodExtensionContext;)V+6
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor$$Lambda+0x00003c000114b8e0.execute()V+16
+j  org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V+1
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(Lorg/junit/jupiter/engine/execution/JupiterEngineExecutionContext;)Lorg/junit/jupiter/engine/execution/JupiterEngineExecutionContext;+56
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;)Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;+5
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2()V+9
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda+0x00003c000109e410.execute()V+4
+j  org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V+1
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare()V+10
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.execute()V+17
+j  org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService$$Lambda+0x00003c00010a6230.accept(Ljava/lang/Object;)V+4
+j  java.util.ArrayList.forEach(Ljava/util/function/Consumer;)V+46 java.base@22
+j  org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(Ljava/util/List;)V+6
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6()V+116
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda+0x00003c00010a36b0.execute()V+4
+j  org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V+1
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;)V+15
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda+0x00003c00010a3490.invoke(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;)V+5
+j  org.junit.platform.engine.support.hierarchical.Node.around(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;Lorg/junit/platform/engine/support/hierarchical/Node$Invocation;)V+2
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9()V+14
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda+0x00003c00010a3078.execute()V+4
+j  org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V+1
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively()V+31
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.execute()V+55
+j  org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService$$Lambda+0x00003c00010a6230.accept(Ljava/lang/Object;)V+4
+j  java.util.ArrayList.forEach(Ljava/util/function/Consumer;)V+46 java.base@22
+j  org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(Ljava/util/List;)V+6
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6()V+116
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda+0x00003c00010a36b0.execute()V+4
+j  org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V+1
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;)V+15
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda+0x00003c00010a3490.invoke(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;)V+5
+j  org.junit.platform.engine.support.hierarchical.Node.around(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;Lorg/junit/platform/engine/support/hierarchical/Node$Invocation;)V+2
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9()V+14
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda+0x00003c00010a3078.execute()V+4
+j  org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V+1
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively()V+31
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.execute()V+55
+j  org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(Lorg/junit/platform/engine/support/hierarchical/HierarchicalTestExecutorService$TestTask;)Ljava/util/concurrent/Future;+1
+j  org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute()Ljava/util/concurrent/Future;+74
+j  org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(Lorg/junit/platform/engine/ExecutionRequest;)V+31
+j  org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(Lorg/junit/platform/engine/TestDescriptor;Lorg/junit/platform/engine/EngineExecutionListener;Lorg/junit/platform/engine/ConfigurationParameters;Lorg/junit/platform/engine/TestEngine;)V+24
+j  org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(Lorg/junit/platform/launcher/core/LauncherDiscoveryResult;Lorg/junit/platform/engine/EngineExecutionListener;)V+115
+j  org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(Lorg/junit/platform/launcher/core/InternalTestPlan;Lorg/junit/platform/engine/EngineExecutionListener;Lorg/junit/platform/launcher/TestExecutionListener;)V+55
+j  org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(Lorg/junit/platform/launcher/core/InternalTestPlan;Lorg/junit/platform/launcher/TestExecutionListener;)V+6
+j  org.junit.platform.launcher.core.EngineExecutionOrchestrator$$Lambda+0x00003c000108cc68.accept(Ljava/lang/Object;)V+12
+j  org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(Lorg/junit/platform/engine/ConfigurationParameters;Lorg/junit/platform/launcher/core/ListenerRegistry;Ljava/util/function/Consumer;)V+51
+j  org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(Lorg/junit/platform/launcher/core/InternalTestPlan;[Lorg/junit/platform/launcher/TestExecutionListener;)V+23
+j  org.junit.platform.launcher.core.DefaultLauncher.execute(Lorg/junit/platform/launcher/core/InternalTestPlan;[Lorg/junit/platform/launcher/TestExecutionListener;)V+6
+j  org.junit.platform.launcher.core.DefaultLauncher.execute(Lorg/junit/platform/launcher/LauncherDiscoveryRequest;[Lorg/junit/platform/launcher/TestExecutionListener;)V+34
+j  org.junit.platform.launcher.core.DelegatingLauncher.execute(Lorg/junit/platform/launcher/LauncherDiscoveryRequest;[Lorg/junit/platform/launcher/TestExecutionListener;)V+6
+j  org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(Lorg/junit/platform/launcher/LauncherDiscoveryRequest;[Lorg/junit/platform/launcher/TestExecutionListener;)V+13
+j  com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs([Ljava/lang/String;Ljava/lang/String;IZ)I+203
+j  com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(Z)I+17
+j  com.intellij.rt.execution.junit.TestsRepeater.repeat(IZLcom/intellij/rt/execution/junit/TestsRepeater$TestRun;)I+7
+j  com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(Lcom/intellij/rt/junit/IdeaTestRunner;[Ljava/lang/String;Ljava/util/ArrayList;Ljava/lang/String;IZ)I+25
+j  com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart([Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;Ljava/lang/String;)I+117
+j  com.intellij.rt.junit.JUnitStarter.main([Ljava/lang/String;)V+97
+v  ~StubRoutines::call_stub 0x0000000137534154
+V  [libjvm.dylib+0x4b16c8]  JavaCalls::call_helper(JavaValue*, methodHandle const&, JavaCallArguments*, JavaThread*)+0x3d8
+V  [libjvm.dylib+0x52af50]  jni_invoke_static(JNIEnv_*, JavaValue*, _jobject*, JNICallType, _jmethodID*, JNI_ArgumentPusher*, JavaThread*)+0x170
+V  [libjvm.dylib+0x52e5a8]  jni_CallStaticVoidMethod+0xfc
+C  [libjli.dylib+0xa108]  invokeStaticMainWithArgs+0x94
+C  [libjli.dylib+0xab90]  JavaMain+0x780
+C  [libjli.dylib+0xd5e0]  ThreadJavaMain+0xc
+C  [libsystem_pthread.dylib+0x6f94]  _pthread_start+0x88
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 2 (SEGV_ACCERR), si_addr: 0xfffffffffffffffe
+
+Registers:
+ x0=0x0000000158337c20  x1=0x0000000fffffc118  x2=0x00003c0000096398  x3=0x0000000000000002
+ x4=0xfffffffffffffff6  x5=0x00000000000000a0  x6=0x0000000000000000  x7=0x0000000000000000
+ x8=0x000000016b2cff20  x9=0x0000000000000009 x10=0x0000000000000002 x11=0x0000000000000002
+x12=0x000000015801ee48 x13=0x0000000000000000 x14=0x0000000000000000 x15=0x0000000000000000
+x16=0x0000000187b26d7c x17=0x0000600001ead710 x18=0x0000000000000000 x19=0x00003c0000053d58
+x20=0x000000016b2cff18 x21=0x000000010700b168 x22=0x00003c00006fd547 x23=0x0000000036820f65
+x24=0x000000016b2cff90 x25=0x0000000786621f20 x26=0x00003c0000095e50 x27=0x000000078669eb40
+x28=0x000000012280d800  fp=0x000000016b2cff70  lr=0x00000001375399f4  sp=0x000000016b2cfef0
+pc=0x000000013754d9b4 cpsr=0x0000000020001000
+
+Register to memory mapping:
+
+x0 =0x0000000158337c20 is pointing into metadata
+x1 =0x0000000fffffc118 points into unknown readable memory: 0x2010002030100000 | 00 00 10 30 20 00 10 20
+x2 =0x00003c0000096398 is pointing into metadata
+x3 =0x0000000000000002 is an unknown value
+x4 =0xfffffffffffffff6 is an unknown value
+x5 =0x00000000000000a0 is an unknown value
+x6 =0x0 is null
+x7 =0x0 is null
+x8 =0x000000016b2cff20 is pointing into the stack for thread: 0x000000012280d800
+x9 =0x0000000000000009 is an unknown value
+x10=0x0000000000000002 is an unknown value
+x11=0x0000000000000002 is an unknown value
+x12={method} {0x000000015801ee48} 'linkToSpecial' '(Ljava/lang/Object;Ljava/lang/invoke/MemberName;)V' in 'java/lang/invoke/MethodHandle'
+x13=0x0 is null
+x14=0x0 is null
+x15=0x0 is null
+x16=0x0000000187b26d7c: pthread_jit_write_protect_np+0 in /usr/lib/system/libsystem_pthread.dylib at 0x0000000187b1f000
+x17=0x0000600001ead710 points into unknown readable memory: 0x00000000ffffffff | ff ff ff ff 00 00 00 00
+x18=0x0 is null
+x19=0x00003c0000053d58 is a pointer to class: 
+java.lang.invoke.MethodHandle {0x00003c0000053d58}
+ - instance size:     4
+ - klass size:        106
+ - access:            public synchronized abstract 
+ - flags:             rewritten has_nonstatic_fields is_shared_boot_class has_localvariable_table has_final_method has_resolved_methods 
+ - state:             fully_initialized
+ - name:              'java/lang/invoke/MethodHandle'
+ - super:             'java/lang/Object'
+ - sub:               'java/lang/invoke/DelegatingMethodHandle'   'java/lang/invoke/BoundMethodHandle'   'java/lang/invoke/DirectMethodHandle'   
+ - arrays:            'java/lang/invoke/MethodHandle'[]
+ - methods:           Array<T>(0x00003c0000676b08)
+ - method ordering:   Array<T>(0x00003c0000676cf8)
+ - default_methods:   Array<T>(0x0000000000000000)
+ - local interfaces:  Array<T>(0x00003c0000675378)
+ - trans. interfaces: Array<T>(0x00003c0000675378)
+ - constants:         constant pool [736] {0x00003c0000675388} for 'java/lang/invoke/MethodHandle' cache=0x00003c00003ccc00
+ - class loader data:  loader data: 0x0000600001da81e0 of 'bootstrap'
+ - source file:       'MethodHandle.java'
+ - class annotations:       Array<T>(0x0000000000000000)
+ - class type annotations:  Array<T>(0x0000000000000000)
+ - field annotations:       Array<T>(0x0000000000000000)
+ - field type annotations:  Array<T>(0x0000000000000000)
+ - inner classes:     Array<T>(0x00003c0000676ad0)
+ - nest members:     Array<T>(0x00003c0000676e38)
+ - permitted subclasses:     Array<T>(0x00003c0000676e48)
+ - java mirror:       a 'java/lang/Class'{0x00000007ffe837a0} = 'java/lang/invoke/MethodHandle'
+ - vtable length      43  (start addr: 0x00003c0000053f20)
+ - itable length      5 (start addr: 0x00003c0000054078)
+ - ---- static fields (3 words):
+ - private static final 'FORM_OFFSET' 'J' @112 
+ - private static final 'UPDATE_OFFSET' 'J' @120 
+ - static final synthetic '$assertionsDisabled' 'Z' @128 
+ - ---- non-static fields (5 words):
+ - private 'customizationCount' 'B' @12 
+ - private volatile 'updateInProgress' 'Z' @13 
+ - private final 'type' 'Ljava/lang/invoke/MethodType;' @16 
+ - final 'form' 'Ljava/lang/invoke/LambdaForm;' @20 
+ - private 'asTypeCache' 'Ljava/lang/invoke/MethodHandle;' @24 
+ - private 'asTypeSoftCache' 'Ljava/lang/ref/SoftReference;' @28 
+ - non-static oop maps: 16-28 
+x20=0x000000016b2cff18 is pointing into the stack for thread: 0x000000012280d800
+x21=0x000000010700b168: _ZN19TemplateInterpreter13_active_tableE+0 in /Library/Java/JavaVirtualMachines/jdk-22.jdk/Contents/Home/lib/server/libjvm.dylib at 0x000000010635c000
+x22=0x00003c00006fd547 is pointing into metadata
+x23=0x0000000036820f65 is an unknown value
+x24=0x000000016b2cff90 is pointing into the stack for thread: 0x000000012280d800
+x25=0x0000000786621f20 is an oop: [Ljava.util.concurrent.ConcurrentHashMap$Node; 
+{0x0000000786621f20} - klass: 'java/util/concurrent/ConcurrentHashMap$Node'[]
+ - length: 2048
+x26=0x00003c0000095e50 is pointing into metadata
+x27=0x000000078669eb40 is an oop: java.util.concurrent.ConcurrentHashMap$Node 
+{0x000000078669eb40} - klass: 'java/util/concurrent/ConcurrentHashMap$Node'
+ - ---- fields (total size 4 words):
+ - final 'hash' 'I' @12  1354319717 (0x50b94765)
+ - final 'key' 'Ljava/lang/Object;' @16  a 'jdk/internal/util/WeakReferenceKey'{0x000000078669eb60} (0xf0cd3d6c)
+ - volatile 'val' 'Ljava/lang/Object;' @20  a 'jdk/internal/util/WeakReferenceKey'{0x000000078669eb60} (0xf0cd3d6c)
+ - volatile 'next' 'Ljava/util/concurrent/ConcurrentHashMap$Node;' @24  a 'java/util/concurrent/ConcurrentHashMap$Node'{0x000000078669eb80} (0xf0cd3d70)
+x28=0x000000012280d800 is a thread
+ fp=0x000000016b2cff70 is pointing into the stack for thread: 0x000000012280d800
+ lr=0x00000001375399f4 is at code_begin+3764 in an Interpreter codelet
+return entry points  [0x0000000137538b40, 0x000000013753a508]  6600 bytes
+ sp=0x000000016b2cfef0 is pointing into the stack for thread: 0x000000012280d800
+
+Top of Stack: (sp=0x000000016b2cfef0)
+0x000000016b2cfef0:   000000016b2cff70 0000000137553fc0
+0x000000016b2cff00:   0000000158469c98 000000078669eb40
+0x000000016b2cff10:   000000012280d800 0000000786a8d688
+0x000000016b2cff20:   fffffffffffffff6 00003c00006fd547
+0x000000016b2cff30:   0000000000000004 00003c0000095e50
+0x000000016b2cff40:   00000007ffe84ca0 fffffffffffffff0
+0x000000016b2cff50:   0000000158337c20 00003c000009a690
+0x000000016b2cff60:   0000000000000000 000000016b2cffa0
+0x000000016b2cff70:   000000016b2d0270 00000001303861b8
+0x000000016b2cff80:   0000000786a8d5e0 0000000786a8d688
+0x000000016b2cff90:   0000000786a8d640 00000001303861b8
+0x000000016b2cffa0:   0000000000000005 00003c00003fbcf8
+0x000000016b2cffb0:   00000007ffe7fe40 fffffffffffffff0
+0x000000016b2cffc0:   0000000000000000 00003c00003fb838
+0x000000016b2cffd0:   0000000000000000 000000016b2cffe0
+0x000000016b2cffe0:   000000016b2d0060 00000001375399f4
+0x000000016b2cfff0:   000000016b2d0060 0000000000000000
+0x000000016b2d0000:   0000000786a8d670 00000007866176d8
+0x000000016b2d0010:   fffffffffffffff6 00003c0000b9aa28
+0x000000016b2d0020:   0000000000000005 00003c00003fbcf8
+0x000000016b2d0030:   00000007ffe7fe40 fffffffffffffff0
+0x000000016b2d0040:   0000000786a8d670 0000000786a700f0
+0x000000016b2d0050:   0000000000000000 000000016b2d0060
+0x000000016b2d0060:   000000016b2d00e0 00000001375399f4
+0x000000016b2d0070:   0000000000000000 00000007866176d8
+0x000000016b2d0080:   0000000786a8d640 0000000786a8d670
+0x000000016b2d0090:   fffffffffffffff6 00003c0000b9ab3e
+0x000000016b2d00a0:   0000000000000004 00003c00003fbcf8
+0x000000016b2d00b0:   00000007ffe7fe40 fffffffffffffff0
+0x000000016b2d00c0:   0000000158201c38 00003c00003fb8e8
+0x000000016b2d00d0:   0000000000000000 000000016b2d0110
+0x000000016b2d00e0:   000000016b2d0270 000000013025a010 
+
+Instructions: (pc=0x000000013754d9b4)
+0x000000013754d8b4:   e8 33 c1 a8 00 00 1f d6 88 07 40 f9 a8 00 00 b4
+0x000000013754d8c4:   08 10 88 d2 68 ea a6 f2 28 00 c0 f2 00 01 1f d6
+0x000000013754d8d4:   b6 e3 7b a9 b8 6f 38 8b c3 12 40 78 e2 07 7d b2
+0x000000013754d8e4:   63 7c 02 9b 42 1f 40 f9 42 20 00 91 42 60 23 8b
+0x000000013754d8f4:   53 00 40 f9 73 06 40 f9 73 06 40 f9 73 0e 40 f9
+0x000000013754d904:   68 82 44 39 1f 15 00 f1 80 00 00 54 68 9a 40 f9
+0x000000013754d914:   9f 03 08 eb c1 f7 ff 54 43 54 40 39 4c 00 40 f9
+0x000000013754d924:   b6 83 1b f8 49 50 40 39 08 cd 80 d2 28 e0 a0 f2
+0x000000013754d934:   28 00 c0 f2 1e 79 69 f8 a0 03 5e f8 e0 00 00 b4
+0x000000013754d944:   08 04 40 f9 08 05 00 b1 42 00 00 54 08 04 00 f9
+0x000000013754d954:   00 40 00 91 a0 03 1e f8 a0 03 5e f8 80 0a 00 b4
+0x000000013754d964:   08 00 5f 38 1f 29 00 f1 21 0a 00 54 04 00 40 f9
+0x000000013754d974:   84 00 00 d1 9f 08 00 f1 08 20 00 91 2b 09 00 54
+0x000000013754d984:   84 05 40 f9 84 5c 40 79 08 04 40 f9 84 00 08 cb
+0x000000013754d994:   84 04 00 d1 88 6e 24 8b 04 01 40 f9 a4 00 00 b5
+0x000000013754d9a4:   08 08 40 f9 08 01 40 b2 08 08 00 f9 15 00 00 14
+0x000000013754d9b4:   84 08 40 b9 84 0c 56 d2 08 08 40 f9 84 00 08 ca
+0x000000013754d9c4:   9f f4 7e f2 e0 01 00 54 c4 01 08 37 88 01 00 b4
+0x000000013754d9d4:   1f 05 00 f1 40 01 00 54 84 00 08 ca 08 08 40 f9
+0x000000013754d9e4:   84 00 08 ca 9f f4 7e f2 c0 00 00 54 08 08 40 f9
+0x000000013754d9f4:   08 01 7f b2 08 08 00 f9 02 00 00 14 04 08 00 f9
+0x000000013754da04:   04 00 40 f9 84 08 00 d1 9f 08 00 f1 08 60 00 91
+0x000000013754da14:   8b 04 00 54 84 05 40 f9 84 5c 40 79 08 0c 40 f9
+0x000000013754da24:   84 00 08 cb 84 04 00 d1 88 6e 24 8b 04 01 40 f9
+0x000000013754da34:   a4 00 00 b5 08 10 40 f9 08 01 40 b2 08 10 00 f9
+0x000000013754da44:   15 00 00 14 84 08 40 b9 84 0c 56 d2 08 10 40 f9
+0x000000013754da54:   84 00 08 ca 9f f4 7e f2 e0 01 00 54 c4 01 08 37
+0x000000013754da64:   88 01 00 b4 1f 05 00 f1 40 01 00 54 84 00 08 ca
+0x000000013754da74:   08 10 40 f9 84 00 08 ca 9f f4 7e f2 c0 00 00 54
+0x000000013754da84:   08 10 40 f9 08 01 7f b2 08 10 00 f9 02 00 00 14
+0x000000013754da94:   04 10 00 f9 04 00 40 f9 84 10 00 d1 08 a0 00 91
+0x000000013754daa4:   e0 03 08 aa 00 0c 04 8b a0 03 1e f8 f3 03 00 91 
+
+
+Stack slot to memory mapping:
+
+stack at sp + 0 slots: 0x000000016b2cff70 is pointing into the stack for thread: 0x000000012280d800
+stack at sp + 1 slots: 0x0000000137553fc0 is at code_begin+0 in an Interpreter codelet
+deoptimization entry points  [0x0000000137553fc0, 0x0000000137556948]  10632 bytes
+stack at sp + 2 slots: 0x0000000158469c98 is pointing into metadata
+stack at sp + 3 slots: 0x000000078669eb40 is an oop: java.util.concurrent.ConcurrentHashMap$Node 
+{0x000000078669eb40} - klass: 'java/util/concurrent/ConcurrentHashMap$Node'
+ - ---- fields (total size 4 words):
+ - final 'hash' 'I' @12  1354319717 (0x50b94765)
+ - final 'key' 'Ljava/lang/Object;' @16  a 'jdk/internal/util/WeakReferenceKey'{0x000000078669eb60} (0xf0cd3d6c)
+ - volatile 'val' 'Ljava/lang/Object;' @20  a 'jdk/internal/util/WeakReferenceKey'{0x000000078669eb60} (0xf0cd3d6c)
+ - volatile 'next' 'Ljava/util/concurrent/ConcurrentHashMap$Node;' @24  a 'java/util/concurrent/ConcurrentHashMap$Node'{0x000000078669eb80} (0xf0cd3d70)
+stack at sp + 4 slots: 0x000000012280d800 is a thread
+stack at sp + 5 slots: 0x0000000786a8d688 is an oop: com.jacinthocaio.user_service.controller.UsercontrollerTest 
+{0x0000000786a8d688} - klass: 'com/jacinthocaio/user_service/controller/UsercontrollerTest'
+ - ---- fields (total size 5 words):
+ - private 'mockMvc' 'Lorg/springframework/test/web/servlet/MockMvc;' @12  null (0x00000000)
+ - private 'userData' 'Lcom/jacinthocaio/user_service/repository/UserData;' @16  null (0x00000000)
+ - private 'repository' 'Lcom/jacinthocaio/user_service/repository/UserHardCodedRepository;' @20  null (0x00000000)
+ - private 'usersList' 'Ljava/util/List;' @24  null (0x00000000)
+ - private 'fileUtils' 'Lcom/jacinthocaio/user_service/commons/FileUtils;' @28  null (0x00000000)
+ - private 'userUtils' 'Lcom/jacinthocaio/user_service/commons/UserUtils;' @32  null (0x00000000)
+stack at sp + 6 slots: 0xfffffffffffffff6 is an unknown value
+stack at sp + 7 slots: 0x00003c00006fd547 is pointing into metadata
+
+invokestatic  184 invokestatic  [0x000000013754d7c0, 0x000000013754dad8]  792 bytes
+[MachCode]
+  0x000000013754d7c0: 808e 1ff8 | 0900 0014 | 808e 1fbc | 0700 0014 | 800e 1ffc | 0500 0014 | 9f8e 1ff8 | 808e 1ff8 
+  0x000000013754d7e0: 0200 0014 | 808e 1ff8 | c312 4078 | e207 7db2 | 637c 029b | 421f 40f9 | 4220 0091 | 4260 238b 
+  0x000000013754d800: 5358 0091 | 73fe df08 | 7fe2 02f1 | 4007 0054 | 1317 80d2 | e103 13aa | b683 1bf8 | e003 1caa 
+  0x000000013754d820: 2801 0010 | 88d7 01f9 | 94d3 01f9 | 9ddb 01f9 | e833 bfa9 | 0883 88d2 | 08d0 a0f2 | 2800 c0f2 
+  0x000000013754d840: 0001 3fd6 | e833 c1a8 | feff ff10 | 9fd3 01f9 | 9fdb 01f9 | 9fd7 01f9 | 8837 45b9 | 2801 0036 
+  0x000000013754d860: 0801 0837 | e833 bfa9 | 08a6 8cd2 | e8cf a0f2 | 2800 c0f2 | 0001 3fd6 | e833 c1a8 | 0000 1fd6 
+  0x000000013754d880: 88e3 42f9 | c801 00b4 | 089d 40b9 | 1f05 0071 | 6101 0054 | 88e3 42f9 | 08a1 40b9 | e003 08aa 
+  0x000000013754d8a0: e833 bfa9 | 0818 8dd2 | e8cf a0f2 | 2800 c0f2 | 0001 3fd6 | e833 c1a8 | 0000 1fd6 | 8807 40f9 
+  0x000000013754d8c0: a800 00b4 | 0810 88d2 | 68ea a6f2 | 2800 c0f2 | 0001 1fd6 | b6e3 7ba9 | b86f 388b | c312 4078 
+  0x000000013754d8e0: e207 7db2 | 637c 029b | 421f 40f9 | 4220 0091 | 4260 238b | 5300 40f9 | 7306 40f9 | 7306 40f9 
+  0x000000013754d900: 730e 40f9 | 6882 4439 | 1f15 00f1 | 8000 0054 | 689a 40f9 | 9f03 08eb | c1f7 ff54 | 4354 4039 
+  0x000000013754d920: 4c00 40f9 | b683 1bf8 | 4950 4039 | 08cd 80d2 | 28e0 a0f2 | 2800 c0f2 | 1e79 69f8 | a003 5ef8 
+  0x000000013754d940: e000 00b4 | 0804 40f9 | 0805 00b1 | 4200 0054 | 0804 00f9 | 0040 0091 | a003 1ef8 | a003 5ef8 
+  0x000000013754d960: 800a 00b4 | 0800 5f38 | 1f29 00f1 | 210a 0054 | 0400 40f9 | 8400 00d1 | 9f08 00f1 | 0820 0091 
+  0x000000013754d980: 2b09 0054 | 8405 40f9 | 845c 4079 | 0804 40f9 | 8400 08cb | 8404 00d1 | 886e 248b | 0401 40f9 
+  0x000000013754d9a0: a400 00b5 | 0808 40f9 | 0801 40b2 | 0808 00f9 | 1500 0014 | 8408 40b9 | 840c 56d2 | 0808 40f9 
+  0x000000013754d9c0: 8400 08ca | 9ff4 7ef2 | e001 0054 | c401 0837 | 8801 00b4 | 1f05 00f1 | 4001 0054 | 8400 08ca 
+  0x000000013754d9e0: 0808 40f9 | 8400 08ca | 9ff4 7ef2 | c000 0054 | 0808 40f9 | 0801 7fb2 | 0808 00f9 | 0200 0014 
+  0x000000013754da00: 0408 00f9 | 0400 40f9 | 8408 00d1 | 9f08 00f1 | 0860 0091 | 8b04 0054 | 8405 40f9 | 845c 4079 
+  0x000000013754da20: 080c 40f9 | 8400 08cb | 8404 00d1 | 886e 248b | 0401 40f9 | a400 00b5 | 0810 40f9 | 0801 40b2 
+  0x000000013754da40: 0810 00f9 | 1500 0014 | 8408 40b9 | 840c 56d2 | 0810 40f9 | 8400 08ca | 9ff4 7ef2 | e001 0054 
+  0x000000013754da60: c401 0837 | 8801 00b4 | 1f05 00f1 | 4001 0054 | 8400 08ca | 0810 40f9 | 8400 08ca | 9ff4 7ef2 
+  0x000000013754da80: c000 0054 | 0810 40f9 | 0801 7fb2 | 0810 00f9 | 0200 0014 | 0410 00f9 | 0400 40f9 | 8410 00d1 
+  0x000000013754daa0: 08a0 0091 | e003 08aa | 000c 048b | a003 1ef8 | f303 0091 | 8802 1dcb | 08fd 4393 | a803 1ff8 
+  0x000000013754dac0: 88cb 45b9 | 6800 0034 | 881d 40f9 | 0001 1fd6 | 8829 40f9 | 0001 1fd6 
+[/MachCode]
+
+Compiled method (c1) 1079021 1764   !   3       jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance (130 bytes)
+ total in heap  [0x0000000130382f10,0x0000000130387678] = 18280
+ relocation     [0x0000000130383060,0x00000001303835a8] = 1352
+ main code      [0x00000001303835c0,0x0000000130385d70] = 10160
+ stub code      [0x0000000130385d70,0x00000001303861c0] = 1104
+ oops           [0x00000001303861c0,0x00000001303861f8] = 56
+ metadata       [0x00000001303861f8,0x00000001303863b0] = 440
+ scopes data    [0x00000001303863b0,0x00000001303868c8] = 1304
+ scopes pcs     [0x00000001303868c8,0x0000000130386ef8] = 1584
+ dependencies   [0x0000000130386ef8,0x0000000130386f20] = 40
+ handler table  [0x0000000130386f20,0x00000001303875e0] = 1728
+ nul chk table  [0x00000001303875e0,0x0000000130387678] = 152
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x00003c00001116c0} 'newInstance' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor'
+  # this:     c_rarg1:c_rarg1 
+                        = 'jdk/internal/reflect/DirectConstructorHandleAccessor'
+  # parm0:    c_rarg2:c_rarg2 
+                        = '[Ljava/lang/Object;'
+  #           [sp+0x170]  (sp of caller)
+  0x00000001303835c0: 2808 40b9 | 3f01 086b | c001 0054 
+
+  0x00000001303835cc: ;   {runtime_call ic_miss_stub}
+  0x00000001303835cc: 2db2 c715 | 1f20 03d5 | 1f20 03d5 | 1f20 03d5 | 1f20 03d5 | 1f20 03d5 | 1f20 03d5 | 1f20 03d5 
+  0x00000001303835ec: 1f20 03d5 | 1f20 03d5 | 1f20 03d5 | 1f20 03d5 | 1f20 03d5 
+[Verified Entry Point]
+  0x0000000130383600: 1f20 03d5 | e953 40d1 | 3f01 00f9 | ffc3 05d1 | fd7b 16a9 | 2801 0018 | 8923 40b9 | 1f01 09eb 
+  0x0000000130383620: e000 0054 
+
+  0x0000000130383624: ;   {runtime_call StubRoutines (final stubs)}
+  0x0000000130383624: 0830 93d2 | e8ea a6f2 | 2800 c0f2 | 0001 3fd6 | 0200 0014 | 0100 0000 | e10b 0aa9 
+
+  0x0000000130383640: ;   {metadata(method data for {method} {0x00003c00001116c0} 'newInstance' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x0000000130383640: 0300 99d2 | 4306 abf2 | 2300 c0f2 | 60ac 40b9 | 0008 0011 | 60ac 00b9 | 0024 1f12 | 1f00 0071 
+  0x0000000130383660: 2016 0154 | e303 1faa | 5f00 03eb 
+
+  0x000000013038366c: ;   {metadata(method data for {method} {0x00003c00001116c0} 'newInstance' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x000000013038366c: 0300 99d2 | 4306 abf2 | 2300 c0f2 | e813 7db2 | 0921 80d2 | 0001 899a | 6468 60f8 | 8404 0091 
+  0x000000013038368c: 6468 20f8 | 2001 0054 
+
+  0x0000000130383694: ; implicit exception: dispatches to 0x0000000130385944
+  0x0000000130383694: 430c 40b9 
+
+  0x0000000130383698: ;   {metadata(method data for {method} {0x00003c00001116c0} 'newInstance' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x0000000130383698: 0000 99d2 | 4006 abf2 | 2000 c0f2 | 048c 40f9 | 8404 0091 | 048c 00f9 | 0200 0014 | 0300 a052 
+  0x00000001303836b8: 200c 40b9 | 7f00 006b 
+
+  0x00000001303836c0: ;   {metadata(method data for {method} {0x00003c00001116c0} 'newInstance' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x00000001303836c0: 0400 99d2 | 4406 abf2 | 2400 c0f2 | 0828 80d2 | 0926 80d2 | 0511 899a | 8668 65f8 | c604 0091 
+  0x00000001303836e0: 8668 25f8 | e1eb 0054 | e403 01aa 
+
+  0x00000001303836ec: ;   {metadata(method data for {method} {0x00003c00001116c0} 'newInstance' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x00000001303836ec: 0500 99d2 | 4506 abf2 | 2500 c0f2 
+
+  0x00000001303836f8: ;   {metadata('jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x00000001303836f8: 0892 82d2 | 2802 a0f2 | 0880 c7f2 | a9a0 0991 | 2801 00f9 | a838 41f9 | 0805 0091 | a838 01f9 
+  0x0000000130383718: ;   {metadata(method data for {method} {0x00003c0000111888} 'invokeImpl' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x0000000130383718: 047e 99d2 | 4406 abf2 | 2400 c0f2 | 85ac 40b9 | a508 0011 | 85ac 00b9 | a54c 1f12 | bf00 0071 
+  0x0000000130383738: 8010 0154 
+
+  0x000000013038373c: ;   {metadata(method data for {method} {0x00003c0000111888} 'invokeImpl' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x000000013038373c: 047e 99d2 | 4406 abf2 | 2400 c0f2 | e503 78b2 | 1f00 0071 | e603 05aa | 0822 80d2 | 0501 869a 
+  0x000000013038375c: 1f04 0071 | e603 05aa | 0824 80d2 | 0501 869a | 1f08 0071 | e603 05aa | 0826 80d2 | 0501 869a 
+  0x000000013038377c: 1f0c 0071 | e603 05aa | 0828 80d2 | 0501 869a | 8668 65f8 | c604 0091 | 8668 25f8 | 1f00 0071 
+  0x000000013038379c: 8095 0054 | 1f04 0071 | 605f 0054 | 1f08 0071 | 0025 0054 | 1f0c 0071 | 600f 0054 | e3b3 00b9 
+  0x00000001303837bc: 2010 40b9 | 00f0 7dd3 
+
+  0x00000001303837c4: ; ImmutableOopMap {c_rarg1=Oop c_rarg2=Oop c_rarg0=Oop [160]=Oop [168]=Oop }
+                      ;*invokevirtual invokeExact {reexecute=0 rethrow=0 return_oop=0}
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::invokeImpl@99 (line 90)
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@60 (line 62)
+                      ;   {runtime_call load_appendix_patching Runtime1 stub}
+  0x00000001303837c4: 8f51 cb95 
+
+  0x00000001303837c8: ; implicit exception: dispatches to 0x0000000130385968
+  0x00000001303837c8: 1f00 40f9 
+
+  0x00000001303837cc: ;   {metadata(method data for {method} {0x00003c0000111888} 'invokeImpl' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x00000001303837cc: 057e 99d2 | 4506 abf2 | 2500 c0f2 | a5e0 0c91 | e603 02aa | a600 00b5 | a904 40f9 | 2901 40b2 
+  0x00000001303837ec: a904 00f9 | 1600 0014 | c608 40b9 | c60c 56d2 | a904 40f9 | c600 09ca | c8f4 7e92 | 0802 00b4 
+  0x000000013038380c: e601 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 | c600 09ca | a904 40f9 | c600 09ca 
+  0x000000013038382c: c8f4 7e92 | c800 00b4 | a904 40f9 | 2901 7fb2 | a904 00f9 | 0200 0014 | a604 00f9 | e503 00aa 
+  0x000000013038384c: ;   {metadata(method data for {method} {0x00003c0000111888} 'invokeImpl' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x000000013038384c: 067e 99d2 | 4606 abf2 | 2600 c0f2 | a508 40b9 | a50c 56d2 | c940 0c91 | 2801 40f9 | bf00 08eb 
+  0x000000013038386c: a100 0054 | c88c 41f9 | 0805 0091 | c88c 01f9 | 1c00 0014 | c980 0c91 | 2801 40f9 | bf00 08eb 
+  0x000000013038388c: a100 0054 | c894 41f9 | 0805 0091 | c894 01f9 | 1400 0014 | c940 0c91 | 2801 40f9 | c800 00b5 
+  0x00000001303838ac: 2501 00f9 | e803 40b2 | c960 0c91 | 2801 00f9 | 0c00 0014 | c980 0c91 | 2801 40f9 | c800 00b5 
+  0x00000001303838cc: 2501 00f9 | e803 40b2 | c9a0 0c91 | 2801 00f9 | 0400 0014 | c884 41f9 | 0805 0091 | c884 01f9 
+  0x00000001303838ec: e503 02aa | e203 05aa | e303 04aa | e103 00aa 
+
+  0x00000001303838fc: ; ImmutableOopMap {[160]=Oop [168]=Oop }
+                      ;*invokevirtual invokeExact {reexecute=0 rethrow=0 return_oop=0}
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::invokeImpl@99 (line 90)
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@60 (line 62)
+                      ;   {optimized virtual_call}
+  0x00000001303838fc: 21b2 c795 
+
+  0x0000000130383900: ;   {other}
+  0x0000000130383900: 1f20 03d5 | 1f3e 81f2 | 1f20 80f2 
+
+  0x000000013038390c: ;   {metadata(method data for {method} {0x00003c0000111888} 'invokeImpl' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x000000013038390c: 027e 99d2 | 4206 abf2 | 2200 c0f2 | 4220 0d91 | e303 00aa | a300 00b5 | 4900 40f9 | 2901 40b2 
+  0x000000013038392c: 4900 00f9 | 1600 0014 | 6308 40b9 | 630c 56d2 | 4900 40f9 | 6300 09ca | 68f4 7e92 | 0802 00b4 
+  0x000000013038394c: e301 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 | 6300 09ca | 4900 40f9 | 6300 09ca 
+  0x000000013038396c: 68f4 7e92 | c800 00b4 | 4900 40f9 | 2901 7fb2 | 4900 00f9 | 0200 0014 | 4300 00f9 | fd7b 56a9 
+  0x000000013038398c: ffc3 0591 
+
+  0x0000000130383990: ;   {poll_return}
+  0x0000000130383990: 882f 42f9 | ff63 28eb | a8fe 0054 | c003 5fd6 | e3b3 00b9 | 2010 40b9 | 00f0 7dd3 
+
+  0x00000001303839ac: ; implicit exception: dispatches to 0x0000000130385978
+  0x00000001303839ac: 430c 40b9 | 7f00 0071 | 49fe 0054 | 4310 40b9 | 63f0 7dd3 | 440c 40b9 | 9f04 0071 | 69fe 0054 
+  0x00000001303839cc: 4414 40b9 | 84f0 7dd3 | 450c 40b9 | bf08 0071 | 89fe 0054 | 4518 40b9 | a5f0 7dd3 
+
+  0x00000001303839e8: ; ImmutableOopMap {c_rarg2=Oop c_rarg1=Oop c_rarg0=Oop c_rarg3=Oop c_rarg4=Oop c_rarg5=Oop [160]=Oop [168]=Oop }
+                      ;*invokevirtual invokeExact {reexecute=0 rethrow=0 return_oop=0}
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::invokeImpl@88 (line 89)
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@60 (line 62)
+                      ;   {runtime_call load_appendix_patching Runtime1 stub}
+  0x00000001303839e8: 0651 cb95 
+
+  0x00000001303839ec: ; implicit exception: dispatches to 0x00000001303859c4
+  0x00000001303839ec: 1f00 40f9 
+
+  0x00000001303839f0: ;   {metadata(method data for {method} {0x00003c0000111888} 'invokeImpl' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x00000001303839f0: 077e 99d2 | 4706 abf2 | 2700 c0f2 | e700 0b91 | ea03 03aa | aa00 00b5 | e904 40f9 | 2901 40b2 
+  0x0000000130383a10: e904 00f9 | 1600 0014 | 4a09 40b9 | 4a0d 56d2 | e904 40f9 | 4a01 09ca | 48f5 7e92 | 0802 00b4 
+  0x0000000130383a30: ea01 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 | 4a01 09ca | e904 40f9 | 4a01 09ca 
+  0x0000000130383a50: 48f5 7e92 | c800 00b4 | e904 40f9 | 2901 7fb2 | e904 00f9 | 0200 0014 | ea04 00f9 | ea03 04aa 
+  0x0000000130383a70: aa00 00b5 | e90c 40f9 | 2901 40b2 | e90c 00f9 | 1600 0014 | 4a09 40b9 | 4a0d 56d2 | e90c 40f9 
+  0x0000000130383a90: 4a01 09ca | 48f5 7e92 | 0802 00b4 | ea01 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 
+  0x0000000130383ab0: 4a01 09ca | e90c 40f9 | 4a01 09ca | 48f5 7e92 | c800 00b4 | e90c 40f9 | 2901 7fb2 | e90c 00f9 
+  0x0000000130383ad0: 0200 0014 | ea0c 00f9 | e703 00aa 
+
+  0x0000000130383adc: ;   {metadata(method data for {method} {0x00003c0000111888} 'invokeImpl' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x0000000130383adc: 0a7e 99d2 | 4a06 abf2 | 2a00 c0f2 | e708 40b9 | e70c 56d2 | 4961 0a91 | 2801 40f9 | ff00 08eb 
+  0x0000000130383afc: a100 0054 | 4851 41f9 | 0805 0091 | 4851 01f9 | 1c00 0014 | 49a1 0a91 | 2801 40f9 | ff00 08eb 
+  0x0000000130383b1c: a100 0054 | 4859 41f9 | 0805 0091 | 4859 01f9 | 1400 0014 | 4961 0a91 | 2801 40f9 | c800 00b5 
+  0x0000000130383b3c: 2701 00f9 | e803 40b2 | 4981 0a91 | 2801 00f9 | 0c00 0014 | 49a1 0a91 | 2801 40f9 | c800 00b5 
+  0x0000000130383b5c: 2701 00f9 | e803 40b2 | 49c1 0a91 | 2801 00f9 | 0400 0014 | 4849 41f9 | 0805 0091 | 4849 01f9 
+  0x0000000130383b7c: e203 03aa | e303 04aa | e403 05aa | e503 06aa | e103 00aa 
+
+  0x0000000130383b90: ; ImmutableOopMap {[160]=Oop [168]=Oop }
+                      ;*invokevirtual invokeExact {reexecute=0 rethrow=0 return_oop=0}
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::invokeImpl@88 (line 89)
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@60 (line 62)
+                      ;   {optimized virtual_call}
+  0x0000000130383b90: 7cb1 c795 
+
+  0x0000000130383b94: ;   {other}
+  0x0000000130383b94: 1f20 03d5 | 9f90 81f2 | 1f60 80f2 
+
+  0x0000000130383ba0: ;   {metadata(method data for {method} {0x00003c0000111888} 'invokeImpl' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x0000000130383ba0: 017e 99d2 | 4106 abf2 | 2100 c0f2 | 2180 0b91 | e203 00aa | a200 00b5 | 2900 40f9 | 2901 40b2 
+  0x0000000130383bc0: 2900 00f9 | 1600 0014 | 4208 40b9 | 420c 56d2 | 2900 40f9 | 4200 09ca | 48f4 7e92 | 0802 00b4 
+  0x0000000130383be0: e201 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 | 4200 09ca | 2900 40f9 | 4200 09ca 
+  0x0000000130383c00: 48f4 7e92 | c800 00b4 | 2900 40f9 | 2901 7fb2 | 2900 00f9 | 0200 0014 | 2200 00f9 
+
+  0x0000000130383c1c: ;   {metadata(method data for {method} {0x00003c0000111888} 'invokeImpl' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x0000000130383c1c: 017e 99d2 | 4106 abf2 | 2100 c0f2 | 2278 41f9 | 4204 0091 | 2278 01f9 | fd7b 56a9 | ffc3 0591 
+  0x0000000130383c3c: ;   {poll_return}
+  0x0000000130383c3c: 882f 42f9 | ff63 28eb | 28ec 0054 | c003 5fd6 | e3b3 00b9 | 2010 40b9 | 00f0 7dd3 | e067 00f9 
+  0x0000000130383c5c: ; implicit exception: dispatches to 0x00000001303859d4
+  0x0000000130383c5c: 430c 40b9 | 7f00 0071 | a9eb 0054 | 4310 40b9 | 63f0 7dd3 | e35f 00f9 | 440c 40b9 | 9f04 0071 
+  0x0000000130383c7c: a9eb 0054 | 4414 40b9 | 84f0 7dd3 | e463 00f9 
+
+  0x0000000130383c8c: ;   {metadata(method data for {method} {0x00003c0000111888} 'invokeImpl' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x0000000130383c8c: 057e 99d2 | 4506 abf2 | 2500 c0f2 | a520 0991 | e603 03aa | a600 00b5 | a904 40f9 | 2901 40b2 
+  0x0000000130383cac: a904 00f9 | 1600 0014 | c608 40b9 | c60c 56d2 | a904 40f9 | c600 09ca | c8f4 7e92 | 0802 00b4 
+  0x0000000130383ccc: e601 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 | c600 09ca | a904 40f9 | c600 09ca 
+  0x0000000130383cec: c8f4 7e92 | c800 00b4 | a904 40f9 | 2901 7fb2 | a904 00f9 | 0200 0014 | a604 00f9 
+
+  0x0000000130383d08: ;   {metadata(method data for {method} {0x00003c0000094f08} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130383d08: 0591 9ad2 | 4506 abf2 | 2500 c0f2 | a520 0a91 | e603 00aa | a600 00b5 | a900 40f9 | 2901 40b2 
+  0x0000000130383d28: a900 00f9 | 1600 0014 | c608 40b9 | c60c 56d2 | a900 40f9 | c600 09ca | c8f4 7e92 | 0802 00b4 
+  0x0000000130383d48: e601 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 | c600 09ca | a900 40f9 | c600 09ca 
+  0x0000000130383d68: c8f4 7e92 | c800 00b4 | a900 40f9 | 2901 7fb2 | a900 00f9 | 0200 0014 | a600 00f9 | e603 03aa 
+  0x0000000130383d88: a600 00b5 | a908 40f9 | 2901 40b2 | a908 00f9 | 1600 0014 | c608 40b9 | c60c 56d2 | a908 40f9 
+  0x0000000130383da8: c600 09ca | c8f4 7e92 | 0802 00b4 | e601 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 
+  0x0000000130383dc8: c600 09ca | a908 40f9 | c600 09ca | c8f4 7e92 | c800 00b4 | a908 40f9 | 2901 7fb2 | a908 00f9 
+  0x0000000130383de8: 0200 0014 | a608 00f9 
+
+  0x0000000130383df0: ;   {metadata(method data for {method} {0x00003c0000111888} 'invokeImpl' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x0000000130383df0: 057e 99d2 | 4506 abf2 | 2500 c0f2 | a80c 41f9 | 0805 0091 | a80c 01f9 
+
+  0x0000000130383e08: ;   {metadata(method data for {method} {0x00003c0000094f08} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130383e08: 0591 9ad2 | 4506 abf2 | 2500 c0f2 | a6ac 40b9 | c608 0011 | a6ac 00b9 | c64c 1f12 | df00 0071 
+  0x0000000130383e28: 00df 0054 
+
+  0x0000000130383e2c: ;   {metadata(method data for {method} {0x00003c0000094f08} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130383e2c: 0591 9ad2 | 4506 abf2 | 2500 c0f2 | a5a0 0591 | e603 00aa | a600 00b5 | a904 40f9 | 2901 40b2 
+  0x0000000130383e4c: a904 00f9 | 1600 0014 | c608 40b9 | c60c 56d2 | a904 40f9 | c600 09ca | c8f4 7e92 | 0802 00b4 
+  0x0000000130383e6c: e601 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 | c600 09ca | a904 40f9 | c600 09ca 
+  0x0000000130383e8c: c8f4 7e92 | c800 00b4 | a904 40f9 | 2901 7fb2 | a904 00f9 | 0200 0014 | a604 00f9 
+
+  0x0000000130383ea8: ;   {oop(a 'java/lang/invoke/MethodType'{0x00000007867178f0} = (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;)}
+  0x0000000130383ea8: 061e 8fd2 | 26ce b0f2 | e600 c0f2 | e703 06aa | 8700 00b5 | a90c 40f9 | 2901 40b2 | a90c 00f9 
+  0x0000000130383ec8: ;   {metadata(method data for {method} {0x00003c0000094f08} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130383ec8: 0591 9ad2 | 4506 abf2 | 2500 c0f2 | a8ac 40f9 | 0805 0091 | a8ac 00f9 
+
+  0x0000000130383ee0: ;   {metadata(method data for {method} {0x00003c000039e6b0} 'checkExactType' '(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V' in 'java/lang/invoke/Invokers')}
+  0x0000000130383ee0: 05be 8dd2 | 2503 abf2 | 2500 c0f2 | a7ac 40b9 | e708 0011 | a7ac 00b9 | e74c 1f12 | ff00 0071 
+  0x0000000130383f00: 40d9 0054 
+
+  0x0000000130383f04: ; implicit exception: dispatches to 0x0000000130385a48
+  0x0000000130383f04: 1f00 40f9 | e503 00aa 
+
+  0x0000000130383f0c: ;   {metadata(method data for {method} {0x00003c000039e6b0} 'checkExactType' '(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V' in 'java/lang/invoke/Invokers')}
+  0x0000000130383f0c: 07be 8dd2 | 2703 abf2 | 2700 c0f2 | a508 40b9 | a50c 56d2 | e900 0491 | 2801 40f9 | bf00 08eb 
+  0x0000000130383f2c: a100 0054 | e884 40f9 | 0805 0091 | e884 00f9 | 1c00 0014 | e940 0491 | 2801 40f9 | bf00 08eb 
+  0x0000000130383f4c: a100 0054 | e88c 40f9 | 0805 0091 | e88c 00f9 | 1400 0014 | e900 0491 | 2801 40f9 | c800 00b5 
+  0x0000000130383f6c: 2501 00f9 | e803 40b2 | e920 0491 | 2801 00f9 | 0c00 0014 | e940 0491 | 2801 40f9 | c800 00b5 
+  0x0000000130383f8c: 2501 00f9 | e803 40b2 | e960 0491 | 2801 00f9 | 0400 0014 | e87c 40f9 | 0805 0091 | e87c 00f9 
+  0x0000000130383fac: 0510 40b9 | a5f0 7dd3 | bf00 06eb 
+
+  0x0000000130383fb8: ;   {metadata(method data for {method} {0x00003c000039e6b0} 'checkExactType' '(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V' in 'java/lang/invoke/Invokers')}
+  0x0000000130383fb8: 06be 8dd2 | 2603 abf2 | 2600 c0f2 | 0827 80d2 | 0925 80d2 | 0711 899a | ca68 67f8 | 4a05 0091 
+  0x0000000130383fd8: ca68 27f8 | 8185 0054 
+
+  0x0000000130383fe0: ;   {metadata(method data for {method} {0x00003c0000094f08} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130383fe0: 0591 9ad2 | 4506 abf2 | 2500 c0f2 | a580 0691 | e603 00aa | c608 40b9 | c60c 56d2 | a904 40f9 
+  0x0000000130384000: c600 09ca | c8f4 7e92 | 0802 00b4 | e601 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 
+  0x0000000130384020: c600 09ca | a904 40f9 | c600 09ca | c8f4 7e92 | c800 00b4 | a904 40f9 | 2901 7fb2 | a904 00f9 
+  0x0000000130384040: 0200 0014 | a604 00f9 
+
+  0x0000000130384048: ;   {metadata(method data for {method} {0x00003c0000094f08} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130384048: 0591 9ad2 | 4506 abf2 | 2500 c0f2 | a8c8 40f9 | 0805 0091 | a8c8 00f9 
+
+  0x0000000130384060: ;   {metadata(method data for {method} {0x00003c000039e5a8} 'checkCustomized' '(Ljava/lang/invoke/MethodHandle;)V' in 'java/lang/invoke/Invokers')}
+  0x0000000130384060: 053c 8ed2 | 2503 abf2 | 2500 c0f2 | a6ac 40b9 | c608 0011 | a6ac 00b9 | c64c 1f12 | df00 0071 
+  0x0000000130384080: 60ce 0054 
+
+  0x0000000130384084: ;   {metadata(method data for {method} {0x00003c000039e5a8} 'checkCustomized' '(Ljava/lang/invoke/MethodHandle;)V' in 'java/lang/invoke/Invokers')}
+  0x0000000130384084: 053c 8ed2 | 2503 abf2 | 2500 c0f2 | a87c 40f9 | 0805 0091 | a87c 00f9 
+
+  0x000000013038409c: ;   {metadata(method data for {method} {0x00003c0000081480} 'isCompileConstant' '(Ljava/lang/Object;)Z' in 'java/lang/invoke/MethodHandleImpl')}
+  0x000000013038409c: 056f 8ed2 | 2503 abf2 | 2500 c0f2 | a6ac 40b9 | c608 0011 | a6ac 00b9 | c64c 1f12 | df00 0071 
+  0x00000001303840bc: 80cd 0054 
+
+  0x00000001303840c0: ;   {metadata(method data for {method} {0x00003c000039e5a8} 'checkCustomized' '(Ljava/lang/invoke/MethodHandle;)V' in 'java/lang/invoke/Invokers')}
+  0x00000001303840c0: 053c 8ed2 | 2503 abf2 | 2500 c0f2 | a684 40f9 | c604 0091 | a684 00f9 | 0514 40b9 | a5f0 7dd3 
+  0x00000001303840e0: ; implicit exception: dispatches to 0x0000000130385a8c
+  0x00000001303840e0: a51c 40b9 | a5f0 7dd3 | e603 1faa | bf00 06eb 
+
+  0x00000001303840f0: ;   {metadata(method data for {method} {0x00003c000039e5a8} 'checkCustomized' '(Ljava/lang/invoke/MethodHandle;)V' in 'java/lang/invoke/Invokers')}
+  0x00000001303840f0: 053c 8ed2 | 2503 abf2 | 2500 c0f2 | 0825 80d2 | 0927 80d2 | 0611 899a | a768 66f8 | e704 0091 
+  0x0000000130384110: a768 26f8 | 8101 0054 
+
+  0x0000000130384118: ;   {metadata(method data for {method} {0x00003c000039e5a8} 'checkCustomized' '(Ljava/lang/invoke/MethodHandle;)V' in 'java/lang/invoke/Invokers')}
+  0x0000000130384118: 053c 8ed2 | 2503 abf2 | 2500 c0f2 | a8a4 40f9 | 0805 0091 | a8a4 00f9 | e103 00aa 
+
+  0x0000000130384134: ; ImmutableOopMap {[160]=Oop [168]=Oop [184]=Oop [192]=Oop [200]=Oop }
+                      ;*invokestatic maybeCustomize {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.invoke.Invokers::checkCustomized@19 (line 626)
+                      ; - java.lang.invoke.Invokers$Holder::invokeExact_MT@14
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::invokeImpl@69 (line 88)
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@60 (line 62)
+                      ;   {static_call}
+  0x0000000130384134: 93b1 c795 
+
+  0x0000000130384138: ;   {other}
+  0x0000000130384138: 1f20 03d5 | 1f45 82f2 | 1f80 80f2 | e393 4ba9 
+
+  0x0000000130384148: ;   {metadata(method data for {method} {0x00003c0000094f08} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130384148: 0291 9ad2 | 4206 abf2 | 2200 c0f2 | 42a0 0791 | e103 03aa | a100 00b5 | 4904 40f9 | 2901 40b2 
+  0x0000000130384168: 4904 00f9 | 1600 0014 | 2108 40b9 | 210c 56d2 | 4904 40f9 | 2100 09ca | 28f4 7e92 | 0802 00b4 
+  0x0000000130384188: e101 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 | 2100 09ca | 4904 40f9 | 2100 09ca 
+  0x00000001303841a8: 28f4 7e92 | c800 00b4 | 4904 40f9 | 2901 7fb2 | 4904 00f9 | 0200 0014 | 4104 00f9 | e103 04aa 
+  0x00000001303841c8: a100 00b5 | 490c 40f9 | 2901 40b2 | 490c 00f9 | 1600 0014 | 2108 40b9 | 210c 56d2 | 490c 40f9 
+  0x00000001303841e8: 2100 09ca | 28f4 7e92 | 0802 00b4 | e101 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 
+  0x0000000130384208: 2100 09ca | 490c 40f9 | 2100 09ca | 28f4 7e92 | c800 00b4 | 490c 40f9 | 2901 7fb2 | 490c 00f9 
+  0x0000000130384228: 0200 0014 | 410c 00f9 | e067 40f9 
+
+  0x0000000130384234: ;   {metadata(method data for {method} {0x00003c0000094f08} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130384234: 0291 9ad2 | 4206 abf2 | 2200 c0f2 | 48dc 40f9 | 0805 0091 | 48dc 00f9 | e203 03aa | e303 04aa 
+  0x0000000130384254: e167 40f9 
+
+  0x0000000130384258: ; ImmutableOopMap {[160]=Oop [168]=Oop [184]=Oop [192]=Oop [200]=Oop }
+                      ;*invokevirtual invokeBasic {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.invoke.Invokers$Holder::invokeExact_MT@20
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::invokeImpl@69 (line 88)
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@60 (line 62)
+                      ;   {optimized virtual_call}
+  0x0000000130384258: caaf c795 
+
+  0x000000013038425c: ;   {other}
+  0x000000013038425c: 1f20 03d5 | 9f69 82f2 | 1fa0 80f2 
+
+  0x0000000130384268: ;   {metadata(method data for {method} {0x00003c0000094f08} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130384268: 0191 9ad2 | 4106 abf2 | 2100 c0f2 | 2120 0891 | e203 00aa | a200 00b5 | 2900 40f9 | 2901 40b2 
+  0x0000000130384288: 2900 00f9 | 1600 0014 | 4208 40b9 | 420c 56d2 | 2900 40f9 | 4200 09ca | 48f4 7e92 | 0802 00b4 
+  0x00000001303842a8: e201 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 | 4200 09ca | 2900 40f9 | 4200 09ca 
+  0x00000001303842c8: 48f4 7e92 | c800 00b4 | 2900 40f9 | 2901 7fb2 | 2900 00f9 | 0200 0014 | 2200 00f9 
+
+  0x00000001303842e4: ;   {metadata(method data for {method} {0x00003c0000111888} 'invokeImpl' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x00000001303842e4: 017e 99d2 | 4106 abf2 | 2100 c0f2 | 21a0 0991 | e203 00aa | a200 00b5 | 2900 40f9 | 2901 40b2 
+  0x0000000130384304: 2900 00f9 | 1600 0014 | 4208 40b9 | 420c 56d2 | 2900 40f9 | 4200 09ca | 48f4 7e92 | 0802 00b4 
+  0x0000000130384324: e201 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 | 4200 09ca | 2900 40f9 | 4200 09ca 
+  0x0000000130384344: 48f4 7e92 | c800 00b4 | 2900 40f9 | 2901 7fb2 | 2900 00f9 | 0200 0014 | 2200 00f9 
+
+  0x0000000130384360: ;   {metadata(method data for {method} {0x00003c0000111888} 'invokeImpl' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x0000000130384360: 017e 99d2 | 4106 abf2 | 2100 c0f2 | 223c 41f9 | 4204 0091 | 223c 01f9 | fd7b 56a9 | ffc3 0591 
+  0x0000000130384380: ;   {poll_return}
+  0x0000000130384380: 882f 42f9 | ff63 28eb | 48b8 0054 | c003 5fd6 | e3b3 00b9 | 2010 40b9 | 00f0 7dd3 | e06f 00f9 
+  0x00000001303843a0: ; implicit exception: dispatches to 0x0000000130385a9c
+  0x00000001303843a0: 430c 40b9 | 7f00 0071 | c9b7 0054 | 4310 40b9 | 63f0 7dd3 | e36b 00f9 
+
+  0x00000001303843b8: ;   {metadata(method data for {method} {0x00003c0000111888} 'invokeImpl' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x00000001303843b8: 047e 99d2 | 4406 abf2 | 2400 c0f2 | 8480 0791 | e503 03aa | a500 00b5 | 8904 40f9 | 2901 40b2 
+  0x00000001303843d8: 8904 00f9 | 1600 0014 | a508 40b9 | a50c 56d2 | 8904 40f9 | a500 09ca | a8f4 7e92 | 0802 00b4 
+  0x00000001303843f8: e501 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 | a500 09ca | 8904 40f9 | a500 09ca 
+  0x0000000130384418: a8f4 7e92 | c800 00b4 | 8904 40f9 | 2901 7fb2 | 8904 00f9 | 0200 0014 | 8504 00f9 
+
+  0x0000000130384434: ;   {metadata(method data for {method} {0x00003c0000094fb8} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130384434: 0440 9ad2 | 4406 abf2 | 2400 c0f2 | 84c0 0991 | e503 00aa | a500 00b5 | 8900 40f9 | 2901 40b2 
+  0x0000000130384454: 8900 00f9 | 1600 0014 | a508 40b9 | a50c 56d2 | 8900 40f9 | a500 09ca | a8f4 7e92 | 0802 00b4 
+  0x0000000130384474: e501 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 | a500 09ca | 8900 40f9 | a500 09ca 
+  0x0000000130384494: a8f4 7e92 | c800 00b4 | 8900 40f9 | 2901 7fb2 | 8900 00f9 | 0200 0014 | 8500 00f9 | e503 03aa 
+  0x00000001303844b4: a500 00b5 | 8908 40f9 | 2901 40b2 | 8908 00f9 | 1600 0014 | a508 40b9 | a50c 56d2 | 8908 40f9 
+  0x00000001303844d4: a500 09ca | a8f4 7e92 | 0802 00b4 | e501 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 
+  0x00000001303844f4: a500 09ca | 8908 40f9 | a500 09ca | a8f4 7e92 | c800 00b4 | 8908 40f9 | 2901 7fb2 | 8908 00f9 
+  0x0000000130384514: 0200 0014 | 8508 00f9 
+
+  0x000000013038451c: ;   {metadata(method data for {method} {0x00003c0000111888} 'invokeImpl' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x000000013038451c: 047e 99d2 | 4406 abf2 | 2400 c0f2 | 88d8 40f9 | 0805 0091 | 88d8 00f9 
+
+  0x0000000130384534: ;   {metadata(method data for {method} {0x00003c0000094fb8} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130384534: 0440 9ad2 | 4406 abf2 | 2400 c0f2 | 85ac 40b9 | a508 0011 | 85ac 00b9 | a54c 1f12 | bf00 0071 
+  0x0000000130384554: 20ab 0054 
+
+  0x0000000130384558: ;   {metadata(method data for {method} {0x00003c0000094fb8} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130384558: 0440 9ad2 | 4406 abf2 | 2400 c0f2 | 84a0 0591 | e503 00aa | a500 00b5 | 8904 40f9 | 2901 40b2 
+  0x0000000130384578: 8904 00f9 | 1600 0014 | a508 40b9 | a50c 56d2 | 8904 40f9 | a500 09ca | a8f4 7e92 | 0802 00b4 
+  0x0000000130384598: e501 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 | a500 09ca | 8904 40f9 | a500 09ca 
+  0x00000001303845b8: a8f4 7e92 | c800 00b4 | 8904 40f9 | 2901 7fb2 | 8904 00f9 | 0200 0014 | 8504 00f9 
+
+  0x00000001303845d4: ;   {oop(a 'java/lang/invoke/MethodType'{0x00000007867177c0} = (Ljava/lang/Object;)Ljava/lang/Object;)}
+  0x00000001303845d4: 05f8 8ed2 | 25ce b0f2 | e500 c0f2 | e603 05aa | 8600 00b5 | 890c 40f9 | 2901 40b2 | 890c 00f9 
+  0x00000001303845f4: ;   {metadata(method data for {method} {0x00003c0000094fb8} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x00000001303845f4: 0440 9ad2 | 4406 abf2 | 2400 c0f2 | 88ac 40f9 | 0805 0091 | 88ac 00f9 
+
+  0x000000013038460c: ;   {metadata(method data for {method} {0x00003c000039e6b0} 'checkExactType' '(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V' in 'java/lang/invoke/Invokers')}
+  0x000000013038460c: 04be 8dd2 | 2403 abf2 | 2400 c0f2 | 86ac 40b9 | c608 0011 | 86ac 00b9 | c64c 1f12 | df00 0071 
+  0x000000013038462c: 60a5 0054 
+
+  0x0000000130384630: ; implicit exception: dispatches to 0x0000000130385af8
+  0x0000000130384630: 1f00 40f9 | e403 00aa 
+
+  0x0000000130384638: ;   {metadata(method data for {method} {0x00003c000039e6b0} 'checkExactType' '(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V' in 'java/lang/invoke/Invokers')}
+  0x0000000130384638: 06be 8dd2 | 2603 abf2 | 2600 c0f2 | 8408 40b9 | 840c 56d2 | c900 0491 | 2801 40f9 | 9f00 08eb 
+  0x0000000130384658: a100 0054 | c884 40f9 | 0805 0091 | c884 00f9 | 1c00 0014 | c940 0491 | 2801 40f9 | 9f00 08eb 
+  0x0000000130384678: a100 0054 | c88c 40f9 | 0805 0091 | c88c 00f9 | 1400 0014 | c900 0491 | 2801 40f9 | c800 00b5 
+  0x0000000130384698: 2401 00f9 | e803 40b2 | c920 0491 | 2801 00f9 | 0c00 0014 | c940 0491 | 2801 40f9 | c800 00b5 
+  0x00000001303846b8: 2401 00f9 | e803 40b2 | c960 0491 | 2801 00f9 | 0400 0014 | c87c 40f9 | 0805 0091 | c87c 00f9 
+  0x00000001303846d8: 0410 40b9 | 84f0 7dd3 | 9f00 05eb 
+
+  0x00000001303846e4: ;   {metadata(method data for {method} {0x00003c000039e6b0} 'checkExactType' '(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V' in 'java/lang/invoke/Invokers')}
+  0x00000001303846e4: 05be 8dd2 | 2503 abf2 | 2500 c0f2 | 0827 80d2 | 0925 80d2 | 0611 899a | a768 66f8 | e704 0091 
+  0x0000000130384704: a768 26f8 | c149 0054 
+
+  0x000000013038470c: ;   {metadata(method data for {method} {0x00003c0000094fb8} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x000000013038470c: 0440 9ad2 | 4406 abf2 | 2400 c0f2 | 8480 0691 | e503 00aa | a508 40b9 | a50c 56d2 | 8904 40f9 
+  0x000000013038472c: a500 09ca | a8f4 7e92 | 0802 00b4 | e501 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 
+  0x000000013038474c: a500 09ca | 8904 40f9 | a500 09ca | a8f4 7e92 | c800 00b4 | 8904 40f9 | 2901 7fb2 | 8904 00f9 
+  0x000000013038476c: 0200 0014 | 8504 00f9 
+
+  0x0000000130384774: ;   {metadata(method data for {method} {0x00003c0000094fb8} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130384774: 0440 9ad2 | 4406 abf2 | 2400 c0f2 | 88c8 40f9 | 0805 0091 | 88c8 00f9 
+
+  0x000000013038478c: ;   {metadata(method data for {method} {0x00003c000039e5a8} 'checkCustomized' '(Ljava/lang/invoke/MethodHandle;)V' in 'java/lang/invoke/Invokers')}
+  0x000000013038478c: 043c 8ed2 | 2403 abf2 | 2400 c0f2 | 85ac 40b9 | a508 0011 | 85ac 00b9 | a54c 1f12 | bf00 0071 
+  0x00000001303847ac: 809a 0054 
+
+  0x00000001303847b0: ;   {metadata(method data for {method} {0x00003c000039e5a8} 'checkCustomized' '(Ljava/lang/invoke/MethodHandle;)V' in 'java/lang/invoke/Invokers')}
+  0x00000001303847b0: 043c 8ed2 | 2403 abf2 | 2400 c0f2 | 887c 40f9 | 0805 0091 | 887c 00f9 
+
+  0x00000001303847c8: ;   {metadata(method data for {method} {0x00003c0000081480} 'isCompileConstant' '(Ljava/lang/Object;)Z' in 'java/lang/invoke/MethodHandleImpl')}
+  0x00000001303847c8: 046f 8ed2 | 2403 abf2 | 2400 c0f2 | 85ac 40b9 | a508 0011 | 85ac 00b9 | a54c 1f12 | bf00 0071 
+  0x00000001303847e8: a099 0054 
+
+  0x00000001303847ec: ;   {metadata(method data for {method} {0x00003c000039e5a8} 'checkCustomized' '(Ljava/lang/invoke/MethodHandle;)V' in 'java/lang/invoke/Invokers')}
+  0x00000001303847ec: 043c 8ed2 | 2403 abf2 | 2400 c0f2 | 8584 40f9 | a504 0091 | 8584 00f9 | 0414 40b9 | 84f0 7dd3 
+  0x000000013038480c: ; implicit exception: dispatches to 0x0000000130385b3c
+  0x000000013038480c: 841c 40b9 | 84f0 7dd3 | e503 1faa | 9f00 05eb 
+
+  0x000000013038481c: ;   {metadata(method data for {method} {0x00003c000039e5a8} 'checkCustomized' '(Ljava/lang/invoke/MethodHandle;)V' in 'java/lang/invoke/Invokers')}
+  0x000000013038481c: 043c 8ed2 | 2403 abf2 | 2400 c0f2 | 0825 80d2 | 0927 80d2 | 0511 899a | 8668 65f8 | c604 0091 
+  0x000000013038483c: 8668 25f8 | 8101 0054 
+
+  0x0000000130384844: ;   {metadata(method data for {method} {0x00003c000039e5a8} 'checkCustomized' '(Ljava/lang/invoke/MethodHandle;)V' in 'java/lang/invoke/Invokers')}
+  0x0000000130384844: 043c 8ed2 | 2403 abf2 | 2400 c0f2 | 88a4 40f9 | 0805 0091 | 88a4 00f9 | e103 00aa 
+
+  0x0000000130384860: ; ImmutableOopMap {[160]=Oop [168]=Oop [208]=Oop [216]=Oop }
+                      ;*invokestatic maybeCustomize {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.invoke.Invokers::checkCustomized@19 (line 626)
+                      ; - java.lang.invoke.Invokers$Holder::invokeExact_MT@14
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::invokeImpl@53 (line 87)
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@60 (line 62)
+                      ;   {static_call}
+  0x0000000130384860: 1853 f897 
+
+  0x0000000130384864: ;   {other}
+  0x0000000130384864: 1f20 03d5 | 9f2a 83f2 | 1fc0 80f2 | e36b 40f9 
+
+  0x0000000130384874: ;   {metadata(method data for {method} {0x00003c0000094fb8} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130384874: 0240 9ad2 | 4206 abf2 | 2200 c0f2 | 42a0 0791 | e103 03aa | a100 00b5 | 4904 40f9 | 2901 40b2 
+  0x0000000130384894: 4904 00f9 | 1600 0014 | 2108 40b9 | 210c 56d2 | 4904 40f9 | 2100 09ca | 28f4 7e92 | 0802 00b4 
+  0x00000001303848b4: e101 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 | 2100 09ca | 4904 40f9 | 2100 09ca 
+  0x00000001303848d4: 28f4 7e92 | c800 00b4 | 4904 40f9 | 2901 7fb2 | 4904 00f9 | 0200 0014 | 4104 00f9 | e06f 40f9 
+  0x00000001303848f4: ;   {metadata(method data for {method} {0x00003c0000094fb8} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x00000001303848f4: 0240 9ad2 | 4206 abf2 | 2200 c0f2 | 48dc 40f9 | 0805 0091 | 48dc 00f9 | e203 03aa | e16f 40f9 
+  0x0000000130384914: ; ImmutableOopMap {[160]=Oop [168]=Oop [208]=Oop [216]=Oop }
+                      ;*invokevirtual invokeBasic {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.invoke.Invokers$Holder::invokeExact_MT@19
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::invokeImpl@53 (line 87)
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@60 (line 62)
+                      ;   {optimized virtual_call}
+  0x0000000130384914: 9b1b dd95 
+
+  0x0000000130384918: ;   {other}
+  0x0000000130384918: 1f20 03d5 | 1f41 83f2 | 1fe0 80f2 
+
+  0x0000000130384924: ;   {metadata(method data for {method} {0x00003c0000094fb8} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130384924: 0140 9ad2 | 4106 abf2 | 2100 c0f2 | 21e0 0791 | e203 00aa | a200 00b5 | 2900 40f9 | 2901 40b2 
+  0x0000000130384944: 2900 00f9 | 1600 0014 | 4208 40b9 | 420c 56d2 | 2900 40f9 | 4200 09ca | 48f4 7e92 | 0802 00b4 
+  0x0000000130384964: e201 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 | 4200 09ca | 2900 40f9 | 4200 09ca 
+  0x0000000130384984: 48f4 7e92 | c800 00b4 | 2900 40f9 | 2901 7fb2 | 2900 00f9 | 0200 0014 | 2200 00f9 
+
+  0x00000001303849a0: ;   {metadata(method data for {method} {0x00003c0000111888} 'invokeImpl' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x00000001303849a0: 017e 99d2 | 4106 abf2 | 2100 c0f2 | 21c0 0791 | e203 00aa | a200 00b5 | 2900 40f9 | 2901 40b2 
+  0x00000001303849c0: 2900 00f9 | 1600 0014 | 4208 40b9 | 420c 56d2 | 2900 40f9 | 4200 09ca | 48f4 7e92 | 0802 00b4 
+  0x00000001303849e0: e201 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 | 4200 09ca | 2900 40f9 | 4200 09ca 
+  0x0000000130384a00: 48f4 7e92 | c800 00b4 | 2900 40f9 | 2901 7fb2 | 2900 00f9 | 0200 0014 | 2200 00f9 
+
+  0x0000000130384a1c: ;   {metadata(method data for {method} {0x00003c0000111888} 'invokeImpl' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x0000000130384a1c: 017e 99d2 | 4106 abf2 | 2100 c0f2 | 2200 41f9 | 4204 0091 | 2200 01f9 | fd7b 56a9 | ffc3 0591 
+  0x0000000130384a3c: ;   {poll_return}
+  0x0000000130384a3c: 882f 42f9 | ff63 28eb | e887 0054 | c003 5fd6 | e3b3 00b9 | 2010 40b9 | 00f0 7dd3 | e073 00f9 
+  0x0000000130384a5c: ;   {metadata(method data for {method} {0x00003c0000094f60} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130384a5c: 02f2 99d2 | 4206 abf2 | 2200 c0f2 | 4260 0991 | e303 00aa | a300 00b5 | 4900 40f9 | 2901 40b2 
+  0x0000000130384a7c: 4900 00f9 | 1600 0014 | 6308 40b9 | 630c 56d2 | 4900 40f9 | 6300 09ca | 68f4 7e92 | 0802 00b4 
+  0x0000000130384a9c: e301 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 | 6300 09ca | 4900 40f9 | 6300 09ca 
+  0x0000000130384abc: 68f4 7e92 | c800 00b4 | 4900 40f9 | 2901 7fb2 | 4900 00f9 | 0200 0014 | 4300 00f9 
+
+  0x0000000130384ad8: ;   {oop(a 'java/lang/invoke/MethodType'{0x0000000786719f68} = ()Ljava/lang/Object;)}
+  0x0000000130384ad8: 03ed 93d2 | 23ce b0f2 | e300 c0f2 | e403 03aa | a400 00b5 | 4908 40f9 | 2901 40b2 | 4908 00f9 
+  0x0000000130384af8: 1700 0014 
+
+  0x0000000130384afc: ;   {metadata('java/lang/invoke/MethodType')}
+  0x0000000130384afc: 04f0 85d2 | a400 a0f2 | 0480 c7f2 | 4908 40f9 | 8400 09ca | 88f4 7e92 | 0802 00b4 | e401 0837 
+  0x0000000130384b1c: a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 | 8400 09ca | 4908 40f9 | 8400 09ca | 88f4 7e92 
+  0x0000000130384b3c: c800 00b4 | 4908 40f9 | 2901 7fb2 | 4908 00f9 | 0200 0014 | 4408 00f9 
+
+  0x0000000130384b54: ;   {metadata(method data for {method} {0x00003c0000111888} 'invokeImpl' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x0000000130384b54: 027e 99d2 | 4206 abf2 | 2200 c0f2 | 48ac 40f9 | 0805 0091 | 48ac 00f9 
+
+  0x0000000130384b6c: ;   {metadata(method data for {method} {0x00003c0000094f60} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130384b6c: 02f2 99d2 | 4206 abf2 | 2200 c0f2 | 44ac 40b9 | 8408 0011 | 44ac 00b9 | 844c 1f12 | 9f00 0071 
+  0x0000000130384b8c: 007e 0054 
+
+  0x0000000130384b90: ;   {metadata(method data for {method} {0x00003c0000094f60} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130384b90: 02f2 99d2 | 4206 abf2 | 2200 c0f2 | 42a0 0591 | e403 00aa | a400 00b5 | 4904 40f9 | 2901 40b2 
+  0x0000000130384bb0: 4904 00f9 | 1600 0014 | 8408 40b9 | 840c 56d2 | 4904 40f9 | 8400 09ca | 88f4 7e92 | 0802 00b4 
+  0x0000000130384bd0: e401 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 | 8400 09ca | 4904 40f9 | 8400 09ca 
+  0x0000000130384bf0: 88f4 7e92 | c800 00b4 | 4904 40f9 | 2901 7fb2 | 4904 00f9 | 0200 0014 | 4404 00f9 | e403 03aa 
+  0x0000000130384c10: 8400 00b5 | 490c 40f9 | 2901 40b2 | 490c 00f9 
+
+  0x0000000130384c20: ;   {metadata(method data for {method} {0x00003c0000094f60} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130384c20: 02f2 99d2 | 4206 abf2 | 2200 c0f2 | 48ac 40f9 | 0805 0091 | 48ac 00f9 
+
+  0x0000000130384c38: ;   {metadata(method data for {method} {0x00003c000039e6b0} 'checkExactType' '(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V' in 'java/lang/invoke/Invokers')}
+  0x0000000130384c38: 02be 8dd2 | 2203 abf2 | 2200 c0f2 | 44ac 40b9 | 8408 0011 | 44ac 00b9 | 844c 1f12 | 9f00 0071 
+  0x0000000130384c58: a078 0054 
+
+  0x0000000130384c5c: ; implicit exception: dispatches to 0x0000000130385b8c
+  0x0000000130384c5c: 1f00 40f9 | e203 00aa 
+
+  0x0000000130384c64: ;   {metadata(method data for {method} {0x00003c000039e6b0} 'checkExactType' '(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V' in 'java/lang/invoke/Invokers')}
+  0x0000000130384c64: 04be 8dd2 | 2403 abf2 | 2400 c0f2 | 4208 40b9 | 420c 56d2 | 8900 0491 | 2801 40f9 | 5f00 08eb 
+  0x0000000130384c84: a100 0054 | 8884 40f9 | 0805 0091 | 8884 00f9 | 1c00 0014 | 8940 0491 | 2801 40f9 | 5f00 08eb 
+  0x0000000130384ca4: a100 0054 | 888c 40f9 | 0805 0091 | 888c 00f9 | 1400 0014 | 8900 0491 | 2801 40f9 | c800 00b5 
+  0x0000000130384cc4: 2201 00f9 | e803 40b2 | 8920 0491 | 2801 00f9 | 0c00 0014 | 8940 0491 | 2801 40f9 | c800 00b5 
+  0x0000000130384ce4: 2201 00f9 | e803 40b2 | 8960 0491 | 2801 00f9 | 0400 0014 | 887c 40f9 | 0805 0091 | 887c 00f9 
+  0x0000000130384d04: 0410 40b9 | 84f0 7dd3 | 9f00 03eb 
+
+  0x0000000130384d10: ;   {metadata(method data for {method} {0x00003c000039e6b0} 'checkExactType' '(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V' in 'java/lang/invoke/Invokers')}
+  0x0000000130384d10: 02be 8dd2 | 2203 abf2 | 2200 c0f2 | 0827 80d2 | 0925 80d2 | 0311 899a | 4568 63f8 | a504 0091 
+  0x0000000130384d30: 4568 23f8 | 0116 0054 
+
+  0x0000000130384d38: ;   {metadata(method data for {method} {0x00003c0000094f60} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130384d38: 02f2 99d2 | 4206 abf2 | 2200 c0f2 | 4280 0691 | e303 00aa | 6308 40b9 | 630c 56d2 | 4904 40f9 
+  0x0000000130384d58: 6300 09ca | 68f4 7e92 | 0802 00b4 | e301 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 
+  0x0000000130384d78: 6300 09ca | 4904 40f9 | 6300 09ca | 68f4 7e92 | c800 00b4 | 4904 40f9 | 2901 7fb2 | 4904 00f9 
+  0x0000000130384d98: 0200 0014 | 4304 00f9 
+
+  0x0000000130384da0: ;   {metadata(method data for {method} {0x00003c0000094f60} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130384da0: 02f2 99d2 | 4206 abf2 | 2200 c0f2 | 48c8 40f9 | 0805 0091 | 48c8 00f9 
+
+  0x0000000130384db8: ;   {metadata(method data for {method} {0x00003c000039e5a8} 'checkCustomized' '(Ljava/lang/invoke/MethodHandle;)V' in 'java/lang/invoke/Invokers')}
+  0x0000000130384db8: 023c 8ed2 | 2203 abf2 | 2200 c0f2 | 43ac 40b9 | 6308 0011 | 43ac 00b9 | 634c 1f12 | 7f00 0071 
+  0x0000000130384dd8: c06d 0054 
+
+  0x0000000130384ddc: ;   {metadata(method data for {method} {0x00003c000039e5a8} 'checkCustomized' '(Ljava/lang/invoke/MethodHandle;)V' in 'java/lang/invoke/Invokers')}
+  0x0000000130384ddc: 023c 8ed2 | 2203 abf2 | 2200 c0f2 | 487c 40f9 | 0805 0091 | 487c 00f9 
+
+  0x0000000130384df4: ;   {metadata(method data for {method} {0x00003c0000081480} 'isCompileConstant' '(Ljava/lang/Object;)Z' in 'java/lang/invoke/MethodHandleImpl')}
+  0x0000000130384df4: 026f 8ed2 | 2203 abf2 | 2200 c0f2 | 43ac 40b9 | 6308 0011 | 43ac 00b9 | 634c 1f12 | 7f00 0071 
+  0x0000000130384e14: e06c 0054 
+
+  0x0000000130384e18: ;   {metadata(method data for {method} {0x00003c000039e5a8} 'checkCustomized' '(Ljava/lang/invoke/MethodHandle;)V' in 'java/lang/invoke/Invokers')}
+  0x0000000130384e18: 023c 8ed2 | 2203 abf2 | 2200 c0f2 | 4384 40f9 | 6304 0091 | 4384 00f9 | 0214 40b9 | 42f0 7dd3 
+  0x0000000130384e38: ; implicit exception: dispatches to 0x0000000130385bd0
+  0x0000000130384e38: 421c 40b9 | 42f0 7dd3 | e303 1faa | 5f00 03eb 
+
+  0x0000000130384e48: ;   {metadata(method data for {method} {0x00003c000039e5a8} 'checkCustomized' '(Ljava/lang/invoke/MethodHandle;)V' in 'java/lang/invoke/Invokers')}
+  0x0000000130384e48: 023c 8ed2 | 2203 abf2 | 2200 c0f2 | 0825 80d2 | 0927 80d2 | 0311 899a | 4468 63f8 | 8404 0091 
+  0x0000000130384e68: 4468 23f8 | 8101 0054 
+
+  0x0000000130384e70: ;   {metadata(method data for {method} {0x00003c000039e5a8} 'checkCustomized' '(Ljava/lang/invoke/MethodHandle;)V' in 'java/lang/invoke/Invokers')}
+  0x0000000130384e70: 023c 8ed2 | 2203 abf2 | 2200 c0f2 | 48a4 40f9 | 0805 0091 | 48a4 00f9 | e103 00aa 
+
+  0x0000000130384e8c: ; ImmutableOopMap {[160]=Oop [168]=Oop [224]=Oop }
+                      ;*invokestatic maybeCustomize {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.invoke.Invokers::checkCustomized@19 (line 626)
+                      ; - java.lang.invoke.Invokers$Holder::invokeExact_MT@14
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::invokeImpl@40 (line 86)
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@60 (line 62)
+                      ;   {static_call}
+  0x0000000130384e8c: 8d51 f897 
+
+  0x0000000130384e90: ;   {other}
+  0x0000000130384e90: 1f20 03d5 | 1ff0 83f2 | 1f00 81f2 | e073 40f9 
+
+  0x0000000130384ea0: ;   {metadata(method data for {method} {0x00003c0000094f60} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130384ea0: 01f2 99d2 | 4106 abf2 | 2100 c0f2 | 28dc 40f9 | 0805 0091 | 28dc 00f9 | e173 40f9 
+
+  0x0000000130384ebc: ; ImmutableOopMap {[160]=Oop [168]=Oop [224]=Oop }
+                      ;*invokevirtual invokeBasic {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.invoke.Invokers$Holder::invokeExact_MT@18
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::invokeImpl@40 (line 86)
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@60 (line 62)
+                      ;   {optimized virtual_call}
+  0x0000000130384ebc: f116 dd95 
+
+  0x0000000130384ec0: ;   {other}
+  0x0000000130384ec0: 1f20 03d5 | 1ff6 83f2 | 1f20 81f2 
+
+  0x0000000130384ecc: ;   {metadata(method data for {method} {0x00003c0000094f60} 'invokeExact_MT' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000000130384ecc: 01f2 99d2 | 4106 abf2 | 2100 c0f2 | 21a0 0791 | e203 00aa | a200 00b5 | 2900 40f9 | 2901 40b2 
+  0x0000000130384eec: 2900 00f9 | 1600 0014 | 4208 40b9 | 420c 56d2 | 2900 40f9 | 4200 09ca | 48f4 7e92 | 0802 00b4 
+  0x0000000130384f0c: e201 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 | 4200 09ca | 2900 40f9 | 4200 09ca 
+  0x0000000130384f2c: 48f4 7e92 | c800 00b4 | 2900 40f9 | 2901 7fb2 | 2900 00f9 | 0200 0014 | 2200 00f9 
+
+  0x0000000130384f48: ;   {metadata(method data for {method} {0x00003c0000111888} 'invokeImpl' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x0000000130384f48: 017e 99d2 | 4106 abf2 | 2100 c0f2 | 2120 0691 | e203 00aa | a200 00b5 | 2900 40f9 | 2901 40b2 
+  0x0000000130384f68: 2900 00f9 | 1600 0014 | 4208 40b9 | 420c 56d2 | 2900 40f9 | 4200 09ca | 48f4 7e92 | 0802 00b4 
+  0x0000000130384f88: e201 0837 | a901 00b4 | 3f05 00f1 | 6001 0054 | bf39 03d5 | 4200 09ca | 2900 40f9 | 4200 09ca 
+  0x0000000130384fa8: 48f4 7e92 | c800 00b4 | 2900 40f9 | 2901 7fb2 | 2900 00f9 | 0200 0014 | 2200 00f9 
+
+  0x0000000130384fc4: ;   {metadata(method data for {method} {0x00003c0000111888} 'invokeImpl' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x0000000130384fc4: 017e 99d2 | 4106 abf2 | 2100 c0f2 | 22cc 40f9 | 4204 0091 | 22cc 00f9 | fd7b 56a9 | ffc3 0591 
+  0x0000000130384fe4: ;   {poll_return}
+  0x0000000130384fe4: 882f 42f9 | ff63 28eb | 485f 0054 | c003 5fd6 
+
+  0x0000000130384ff4: ;   {metadata(method data for {method} {0x00003c000039e6b0} 'checkExactType' '(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V' in 'java/lang/invoke/Invokers')}
+  0x0000000130384ff4: 01be 8dd2 | 2103 abf2 | 2100 c0f2 | 28a4 40f9 | 0805 0091 | 28a4 00f9 
+
+  0x000000013038500c: ;   {oop(a 'java/lang/invoke/MethodType'{0x0000000786719f68} = ()Ljava/lang/Object;)}
+  0x000000013038500c: 02ed 93d2 | 22ce b0f2 | e200 c0f2 | e103 04aa | e477 00f9 
+
+  0x0000000130385020: ; ImmutableOopMap {[160]=Oop [168]=Oop [224]=Oop [232]=Oop }
+                      ;*invokestatic newWrongMethodTypeException {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.invoke.Invokers::checkExactType@12 (line 530)
+                      ; - java.lang.invoke.Invokers$Holder::invokeExact_MT@10
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::invokeImpl@40 (line 86)
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@60 (line 62)
+                      ;   {static_call}
+  0x0000000130385020: d8ad c795 
+
+  0x0000000130385024: ;   {other}
+  0x0000000130385024: 1f20 03d5 | 9f22 84f2 | 1f40 81f2 
+
+  0x0000000130385030: ; implicit exception: dispatches to 0x0000000130385be0
+                      ; ImmutableOopMap {c_rarg0=Oop [160]=Oop [168]=Oop [224]=Oop [232]=Oop }
+                      ;*athrow {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.lang.invoke.Invokers::checkExactType@15 (line 530)
+                      ; - java.lang.invoke.Invokers$Holder::invokeExact_MT@10
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::invokeImpl@40 (line 86)
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@60 (line 62)
+  0x0000000130385030: 1f00 40f9 
+
+  0x0000000130385034: ;   {section_word}
+  0x0000000130385034: 0300 0010 
+
+  0x0000000130385038: ;   {runtime_call handle_exception_nofpu Runtime1 stub}
+  0x0000000130385038: 3240 cb95 | 1f20 03d5 
+
+  0x0000000130385040: ;   {metadata(method data for {method} {0x00003c000039e6b0} 'checkExactType' '(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V' in 'java/lang/invoke/Invokers')}
+  0x0000000130385040: 01be 8dd2 | 2103 abf2 | 2100 c0f2 | 28a4 40f9 | 0805 0091 | 28a4 00f9 
+
+  0x0000000130385058: ;   {oop(a 'java/lang/invoke/MethodType'{0x00000007867177c0} = (Ljava/lang/Object;)Ljava/lang/Object;)}
+  0x0000000130385058: 02f8 8ed2 | 22ce b0f2 | e200 c0f2 | e103 04aa | e47b 00f9 
+
+  0x000000013038506c: ; ImmutableOopMap {[160]=Oop [168]=Oop [208]=Oop [216]=Oop [240]=Oop }
+                      ;*invokestatic newWrongMethodTypeException {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.invoke.Invokers::checkExactType@12 (line 530)
+                      ; - java.lang.invoke.Invokers$Holder::invokeExact_MT@10
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::invokeImpl@53 (line 87)
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@60 (line 62)
+                      ;   {static_call}
+  0x000000013038506c: c5ad c795 
+
+  0x0000000130385070: ;   {other}
+  0x0000000130385070: 1f20 03d5 | 1f2c 84f2 | 1f80 81f2 
+
+  0x000000013038507c: ; implicit exception: dispatches to 0x0000000130385be4
+                      ; ImmutableOopMap {c_rarg0=Oop [160]=Oop [168]=Oop [208]=Oop [216]=Oop [240]=Oop }
+                      ;*athrow {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.lang.invoke.Invokers::checkExactType@15 (line 530)
+                      ; - java.lang.invoke.Invokers$Holder::invokeExact_MT@10
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::invokeImpl@53 (line 87)
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@60 (line 62)
+  0x000000013038507c: 1f00 40f9 
+
+  0x0000000130385080: ;   {section_word}
+  0x0000000130385080: 0300 0010 
+
+  0x0000000130385084: ;   {runtime_call handle_exception_nofpu Runtime1 stub}
+  0x0000000130385084: 1f40 cb95 | 1f20 03d5 
+
+  0x000000013038508c: ;   {metadata(method data for {method} {0x00003c000039e6b0} 'checkExactType' '(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V' in 'java/lang/invoke/Invokers')}
+  0x000000013038508c: 01be 8dd2 | 2103 abf2 | 2100 c0f2 | 28a4 40f9 | 0805 0091 | 28a4 00f9 
+
+  0x00000001303850a4: ;   {oop(a 'java/lang/invoke/MethodType'{0x00000007867178f0} = (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;)}
+  0x00000001303850a4: 021e 8fd2 | 22ce b0f2 | e200 c0f2 | e103 05aa | e57f 00f9 
+
+  0x00000001303850b8: ; ImmutableOopMap {[160]=Oop [168]=Oop [184]=Oop [192]=Oop [200]=Oop [248]=Oop }
+                      ;*invokestatic newWrongMethodTypeException {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.invoke.Invokers::checkExactType@12 (line 530)
+                      ; - java.lang.invoke.Invokers$Holder::invokeExact_MT@10
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::invokeImpl@69 (line 88)
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@60 (line 62)
+                      ;   {static_call}
+  0x00000001303850b8: b2ad c795 
+
+  0x00000001303850bc: ;   {other}
+  0x00000001303850bc: 1f20 03d5 | 9f35 84f2 | 1fc0 81f2 
+
+  0x00000001303850c8: ; implicit exception: dispatches to 0x0000000130385be8
+                      ; ImmutableOopMap {c_rarg0=Oop [160]=Oop [168]=Oop [184]=Oop [192]=Oop [200]=Oop [248]=Oop }
+                      ;*athrow {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.lang.invoke.Invokers::checkExactType@15 (line 530)
+                      ; - java.lang.invoke.Invokers$Holder::invokeExact_MT@10
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::invokeImpl@69 (line 88)
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@60 (line 62)
+  0x00000001303850c8: 1f00 40f9 
+
+  0x00000001303850cc: ;   {section_word}
+  0x00000001303850cc: 0300 0010 
+
+  0x00000001303850d0: ;   {runtime_call handle_exception_nofpu Runtime1 stub}
+  0x00000001303850d0: 0c40 cb95 | 1f20 03d5 | 8087 42f9 | 9f87 02f9 | 9f8b 02f9 | e083 00f9 | e153 40f9 
+
+  0x00000001303850ec: ;   {metadata(method data for {method} {0x00003c00001116c0} 'newInstance' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x00000001303850ec: 0200 99d2 | 4206 abf2 | 2200 c0f2 | 4880 41f9 | 0805 0091 | 4880 01f9 
+
+  0x0000000130385104: ;   {metadata(method data for {method} {0x00003c0000111990} 'isIllegalArgument' '(Ljava/lang/RuntimeException;)Z' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x0000000130385104: 01e5 9ad2 | 4106 abf2 | 2100 c0f2 | 22ac 40b9 | 4208 0011 | 22ac 00b9 | 424c 1f12 | 5f00 0071 
+  0x0000000130385124: 4056 0054 
+
+  0x0000000130385128: ;   {oop(a 'java/lang/Class'{0x00000007ffe8dfc8} = 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x0000000130385128: 01f9 9bd2 | 01fd bff2 | e100 c0f2 | e203 00aa 
+
+  0x0000000130385138: ; ImmutableOopMap {[160]=Oop [168]=Oop [256]=Oop }
+                      ;*invokestatic isIllegalArgument {reexecute=0 rethrow=0 return_oop=0}
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::isIllegalArgument@3 (line 79)
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@96 (line 69)
+                      ;   {static_call}
+  0x0000000130385138: 92ad c795 
+
+  0x000000013038513c: ;   {other}
+  0x000000013038513c: 1f20 03d5 | 9f45 84f2 | 1f00 82f2 | 0000 0012 | 1f00 0071 
+
+  0x0000000130385150: ;   {metadata(method data for {method} {0x00003c00001116c0} 'newInstance' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x0000000130385150: 0000 99d2 | 4006 abf2 | 2000 c0f2 | 0866 80d2 | 0968 80d2 | 0101 899a | 0268 61f8 | 4204 0091 
+  0x0000000130385170: 0268 21f8 | a012 0054 | 7300 0014 | 8087 42f9 | 9f87 02f9 | 9f8b 02f9 | e087 00f9 | e153 40f9 
+  0x0000000130385190: ;   {metadata(method data for {method} {0x00003c00001116c0} 'newInstance' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x0000000130385190: 0200 99d2 | 4206 abf2 | 2200 c0f2 | 4848 41f9 | 0805 0091 | 4848 01f9 
+
+  0x00000001303851a8: ;   {metadata(method data for {method} {0x00003c0000111990} 'isIllegalArgument' '(Ljava/lang/RuntimeException;)Z' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x00000001303851a8: 01e5 9ad2 | 4106 abf2 | 2100 c0f2 | 22ac 40b9 | 4208 0011 | 22ac 00b9 | 424c 1f12 | 5f00 0071 
+  0x00000001303851c8: 2052 0054 
+
+  0x00000001303851cc: ;   {oop(a 'java/lang/Class'{0x00000007ffe8dfc8} = 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x00000001303851cc: 01f9 9bd2 | 01fd bff2 | e100 c0f2 | e203 00aa 
+
+  0x00000001303851dc: ; ImmutableOopMap {[160]=Oop [168]=Oop [264]=Oop }
+                      ;*invokestatic isIllegalArgument {reexecute=0 rethrow=0 return_oop=0}
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::isIllegalArgument@3 (line 79)
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@67 (line 64)
+                      ;   {static_call}
+  0x00000001303851dc: 69ad c795 
+
+  0x00000001303851e0: ;   {other}
+  0x00000001303851e0: 1f20 03d5 | 1f5a 84f2 | 1f20 82f2 | 0300 0012 | 7f00 0071 
+
+  0x00000001303851f4: ;   {metadata(method data for {method} {0x00003c00001116c0} 'newInstance' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x00000001303851f4: 0300 99d2 | 4306 abf2 | 2300 c0f2 | 0858 80d2 | 095a 80d2 | 0001 899a | 6468 60f8 | 8404 0091 
+  0x0000000130385214: 6468 20f8 | a004 0054 
+
+  0x000000013038521c: ; ImmutableOopMap {[160]=Oop [168]=Oop [264]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@73 (line 65)
+                      ;   {runtime_call load_mirror_patching Runtime1 stub}
+  0x000000013038521c: 394a cb95 | 80df 40f9 | 0ba0 0091 | 88e7 40f9 | 7f01 08eb | e84f 0054 | 8bdf 00f9 | ea03 40b2 
+  0x000000013038523c: 0a00 00f9 | 6a0c 56d2 | 0a7c 0129 | 0a40 0091 | 5f01 00f9 | 5ffd 00a9 | bf3a 03d5 | e203 00aa 
+  0x000000013038525c: ;   {metadata(method data for {method} {0x00003c00001116c0} 'newInstance' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x000000013038525c: 0300 99d2 | 4306 abf2 | 2300 c0f2 | 6870 41f9 | 0805 0091 | 6870 01f9 
+
+  0x0000000130385274: ;   {oop("argument type mismatch"{0x00000007ffe08808})}
+  0x0000000130385274: 0201 91d2 | 02fc bff2 | e200 c0f2 | e387 40f9 | e103 00aa | e08b 00f9 
+
+  0x000000013038528c: ; ImmutableOopMap {[160]=Oop [168]=Oop [264]=Oop [272]=Oop }
+                      ;*invokespecial <init> {reexecute=0 rethrow=0 return_oop=0}
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@80 (line 65)
+                      ;   {optimized virtual_call}
+  0x000000013038528c: bdab c795 
+
+  0x0000000130385290: ;   {other}
+  0x0000000130385290: 1f20 03d5 | 1f70 84f2 | 1f60 82f2 
+
+  0x000000013038529c: ; ImmutableOopMap {c_rarg0=Oop [160]=Oop [168]=Oop [264]=Oop }
+                      ;*athrow {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@83 (line 65)
+  0x000000013038529c: e08b 40f9 
+
+  0x00000001303852a0: ;   {section_word}
+  0x00000001303852a0: 0300 0010 
+
+  0x00000001303852a4: ;   {runtime_call handle_exception_nofpu Runtime1 stub}
+  0x00000001303852a4: 973f cb95 | 1f20 03d5 | e087 40f9 
+
+  0x00000001303852b0: ; ImmutableOopMap {c_rarg0=Oop [160]=Oop [168]=Oop [264]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@84 (line 67)
+                      ;   {runtime_call load_mirror_patching Runtime1 stub}
+  0x00000001303852b0: 144a cb95 | e503 00aa | 6880 4439 | 1f15 0071 
+
+  0x00000001303852c0: ; implicit exception: dispatches to 0x0000000130385c34
+  0x00000001303852c0: c14b 0054 | 80df 40f9 | 0ba0 0091 | 88e7 40f9 | 7f01 08eb | 284b 0054 | 8bdf 00f9 | ea03 40b2 
+  0x00000001303852e0: 0a00 00f9 | 6a0c 56d2 | 0a7c 0129 | 0a40 0091 | 5f01 00f9 | 5ffd 00a9 | bf3a 03d5 | e203 00aa 
+  0x0000000130385300: ;   {metadata(method data for {method} {0x00003c00001116c0} 'newInstance' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x0000000130385300: 0100 99d2 | 4106 abf2 | 2100 c0f2 | 2878 41f9 | 0805 0091 | 2878 01f9 | e203 05aa | e103 00aa 
+  0x0000000130385320: e08f 00f9 
+
+  0x0000000130385324: ; ImmutableOopMap {[160]=Oop [168]=Oop [264]=Oop [280]=Oop }
+                      ;*invokespecial <init> {reexecute=0 rethrow=0 return_oop=0}
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@89 (line 67)
+                      ;   {optimized virtual_call}
+  0x0000000130385324: 97ab c795 
+
+  0x0000000130385328: ;   {other}
+  0x0000000130385328: 1f20 03d5 | 1f83 84f2 | 1fc0 82f2 
+
+  0x0000000130385334: ; ImmutableOopMap {c_rarg0=Oop [160]=Oop [168]=Oop [264]=Oop }
+                      ;*athrow {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@92 (line 67)
+  0x0000000130385334: e08f 40f9 
+
+  0x0000000130385338: ;   {section_word}
+  0x0000000130385338: 0300 0010 
+
+  0x000000013038533c: ;   {runtime_call handle_exception_nofpu Runtime1 stub}
+  0x000000013038533c: 713f cb95 | 1f20 03d5 
+
+  0x0000000130385344: ; ImmutableOopMap {[160]=Oop [168]=Oop [256]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@102 (line 70)
+                      ;   {runtime_call load_mirror_patching Runtime1 stub}
+  0x0000000130385344: ef49 cb95 | 80df 40f9 | 0ba0 0091 | 88e7 40f9 | 7f01 08eb | 4847 0054 | 8bdf 00f9 | ea03 40b2 
+  0x0000000130385364: 0a00 00f9 | 6a0c 56d2 | 0a7c 0129 | 0a40 0091 | 5f01 00f9 | 5ffd 00a9 | bf3a 03d5 | e203 00aa 
+  0x0000000130385384: ;   {metadata(method data for {method} {0x00003c00001116c0} 'newInstance' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x0000000130385384: 0100 99d2 | 4106 abf2 | 2100 c0f2 | 28a8 41f9 | 0805 0091 | 28a8 01f9 | e283 40f9 | e103 00aa 
+  0x00000001303853a4: e093 00f9 
+
+  0x00000001303853a8: ; ImmutableOopMap {[160]=Oop [168]=Oop [256]=Oop [288]=Oop }
+                      ;*invokespecial <init> {reexecute=0 rethrow=0 return_oop=0}
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@107 (line 70)
+                      ;   {optimized virtual_call}
+  0x00000001303853a8: 76ab c795 
+
+  0x00000001303853ac: ;   {other}
+  0x00000001303853ac: 1f20 03d5 | 9f93 84f2 | 1f20 83f2 
+
+  0x00000001303853b8: ; ImmutableOopMap {c_rarg0=Oop [160]=Oop [168]=Oop [256]=Oop }
+                      ;*athrow {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@110 (line 70)
+  0x00000001303853b8: e093 40f9 
+
+  0x00000001303853bc: ;   {section_word}
+  0x00000001303853bc: 0300 0010 
+
+  0x00000001303853c0: ;   {runtime_call handle_exception_nofpu Runtime1 stub}
+  0x00000001303853c0: 503f cb95 | 1f20 03d5 | e083 40f9 
+
+  0x00000001303853cc: ; ImmutableOopMap {c_rarg0=Oop [160]=Oop [168]=Oop [256]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@111 (line 72)
+                      ;   {runtime_call load_mirror_patching Runtime1 stub}
+  0x00000001303853cc: cd49 cb95 | e503 00aa | 6880 4439 | 1f15 0071 
+
+  0x00000001303853dc: ; implicit exception: dispatches to 0x0000000130385c48
+  0x00000001303853dc: 8143 0054 | 80df 40f9 | 0ba0 0091 | 88e7 40f9 | 7f01 08eb | e842 0054 | 8bdf 00f9 | ea03 40b2 
+  0x00000001303853fc: 0a00 00f9 | 6a0c 56d2 | 0a7c 0129 | 0a40 0091 | 5f01 00f9 | 5ffd 00a9 | bf3a 03d5 | e203 00aa 
+  0x000000013038541c: ;   {metadata(method data for {method} {0x00003c00001116c0} 'newInstance' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x000000013038541c: 0100 99d2 | 4106 abf2 | 2100 c0f2 | 28b0 41f9 | 0805 0091 | 28b0 01f9 | e203 05aa | e103 00aa 
+  0x000000013038543c: e097 00f9 
+
+  0x0000000130385440: ; ImmutableOopMap {[160]=Oop [168]=Oop [256]=Oop [296]=Oop }
+                      ;*invokespecial <init> {reexecute=0 rethrow=0 return_oop=0}
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@116 (line 72)
+                      ;   {optimized virtual_call}
+  0x0000000130385440: 50ab c795 
+
+  0x0000000130385444: ;   {other}
+  0x0000000130385444: 1f20 03d5 | 9fa6 84f2 | 1f80 83f2 
+
+  0x0000000130385450: ; ImmutableOopMap {c_rarg0=Oop [160]=Oop [168]=Oop [256]=Oop }
+                      ;*athrow {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@119 (line 72)
+  0x0000000130385450: e097 40f9 
+
+  0x0000000130385454: ;   {section_word}
+  0x0000000130385454: 0300 0010 
+
+  0x0000000130385458: ;   {runtime_call handle_exception_nofpu Runtime1 stub}
+  0x0000000130385458: 2a3f cb95 | 1f20 03d5 | e3b3 00b9 
+
+  0x0000000130385464: ; ImmutableOopMap {[160]=Oop [168]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - jdk.internal.reflect.DirectConstructorHandleAccessor::newInstance@19 (line 59)
+                      ;   {runtime_call load_mirror_patching Runtime1 stub}
+  0x0000000130385464: a749 cb95 | 80df 40f9 | 0ba0 0091 | 88e7 40f9 | 7f01 08eb | e83e 0054 | 8bdf 00f9 | ea03 40b2 
+  0x0000000130385484: 0a00 00f9 | 6a0c 56d2 | 0a7c 0129 | 0a40 0091 | 5f01 00f9 | 5ffd 00a9 | bf3a 03d5 
+
+  0x00000001303854a0: ;   {metadata('java/lang/StringBuilder')}
+  0x00000001303854a0: 0399 8fd2 | 0300 a0f2 | 0380 c7f2 | e09f 00f9 | 80df 40f9 | 0b60 0091 | 88e7 40f9 | 7f01 08eb 
+  0x00000001303854c0: e83c 0054 | 8bdf 00f9 | ea03 40b2 | 0a00 00f9 | 6a0c 56d2 | 0a7c 0129 | 0a40 0091 | 5f01 00f9 
+  0x00000001303854e0: bf3a 03d5 | e203 00aa 
+
+  0x00000001303854e8: ;   {metadata(method data for {method} {0x00003c00001116c0} 'newInstance' '([Ljava/lang/Object;)Ljava/lang/Object;' in 'jdk/internal/reflect/DirectConstructorHandleAccessor')}
+  0x00000001303854e8: 0300 99d2 | 4306 abf2 | 2300 c0f2 | 68a8 40f9 | 0805 0091 | 68a8 00f9 
+
+  0x0000000130385500: ;   {metadata(method data for {method} {0x00003c0000428088} '<init>' '()V' in 'java/lang/StringBuilder')}
+  0x0000000130385500: 02fd 98d2 | 4200 abf2 | 2200 c0f2 | 43ac 40b9 | 6308 0011 | 43ac 00b9 | 634c 1f12 | 7f00 0071 
+  0x0000000130385520: 203a 0054 | e203 00aa 
+
+  0x0000000130385528: ;   {metadata(method data for {method} {0x00003c0000428088} '<init>' '()V' in 'java/lang/StringBuilder')}
+  0x0000000130385528: 03fd 98d2 | 

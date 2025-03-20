@@ -1,11 +1,9 @@
 package com.jacinthocaio.controller;
 
 import com.jacinthocaio.Service.AnimeService;
-import com.jacinthocaio.domain.Anime;
-import com.jacinthocaio.mapper.ProducerMapper;
+import com.jacinthocaio.mapper.AnimeMapper;
 import com.jacinthocaio.request.AnimePostRequest;
 import com.jacinthocaio.request.AnimePutRequest;
-import com.jacinthocaio.request.ProducerPostRequest;
 import com.jacinthocaio.response.AnimeGetResponse;
 import com.jacinthocaio.response.AnimePostResponse;
 import lombok.RequiredArgsConstructor;
@@ -13,12 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.jacinthocaio.mapper.AnimeMapper;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
-
 
 
 @RestController
@@ -45,7 +39,7 @@ public class AnimeController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<AnimeGetResponse> findById (@PathVariable Long id) {
+    public ResponseEntity<AnimeGetResponse> findById(@PathVariable Long id) {
         log.debug("Request to find anime by id: {}", id);
         var byIdOrThrowNotFound = service.findByIdOrThrowNotFound(id);
         var animeGetResponse = mapper.toAnimeGetResponse(byIdOrThrowNotFound);
@@ -70,7 +64,7 @@ public class AnimeController {
 
 
     @PutMapping()
-    public ResponseEntity<Void> update (@RequestBody AnimePutRequest request) {
+    public ResponseEntity<Void> update(@RequestBody AnimePutRequest request) {
         log.debug("Request to update anime : {}", request);
         var animeUpdate = mapper.toAnime(request);
         service.updated(animeUpdate);

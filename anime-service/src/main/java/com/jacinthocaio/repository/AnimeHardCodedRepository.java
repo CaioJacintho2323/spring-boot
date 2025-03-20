@@ -2,14 +2,15 @@ package com.jacinthocaio.repository;
 
 import com.jacinthocaio.domain.Anime;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
 @Repository
 @RequiredArgsConstructor
+@Log4j2
 public class AnimeHardCodedRepository {
     private final AnimeData animeData;
 
@@ -25,15 +26,21 @@ public class AnimeHardCodedRepository {
     }
 
     public List<Anime> findByName(String name) {
-        return animeData.getAnimes().stream().filter(producer -> producer.getName().equalsIgnoreCase(name)).toList();
+        return animeData.getAnimes()
+                .stream()
+                .filter(producer -> producer.getName().equalsIgnoreCase(name))
+                .toList();
     }
+
     public Anime save(Anime anime) {
         animeData.getAnimes().add(anime);
         return anime;
     }
+
     public void delete(Anime anime) {
         animeData.getAnimes().remove(anime);
     }
+
     public void update(Anime anime) {
         delete(anime);
         save(anime);

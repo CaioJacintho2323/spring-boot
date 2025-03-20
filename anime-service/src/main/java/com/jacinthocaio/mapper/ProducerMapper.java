@@ -9,9 +9,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
 
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Queue;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface ProducerMapper {

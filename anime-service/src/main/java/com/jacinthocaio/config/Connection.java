@@ -1,10 +1,12 @@
-package com.external.dependency;
+package com.jacinthocaio.config;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.ToString;
 
 @ToString
 @AllArgsConstructor
+@Getter
 public class Connection {
     private String host;
     private String username;

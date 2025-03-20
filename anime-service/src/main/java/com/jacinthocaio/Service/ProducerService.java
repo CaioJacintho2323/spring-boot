@@ -2,13 +2,11 @@ package com.jacinthocaio.Service;
 
 import com.jacinthocaio.domain.Producer;
 import com.jacinthocaio.repository.ProducerHardCodedRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+
 import java.util.List;
 
 @Service
@@ -23,15 +21,18 @@ public class ProducerService {
     public Producer findByIdOrThrowNotFound(Long id) {
         return repository
                 .findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Producer not found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Producer not found"));
     }
+
     public Producer save(Producer producer) {
         return repository.save(producer);
     }
+
     public void delete(Long id) {
         Producer producer = findByIdOrThrowNotFound(id);
         repository.delete(producer);
     }
+
     public void updated(Producer producerToUpdate) {
         var producer = findByIdOrThrowNotFound(producerToUpdate.getId());
         producerToUpdate.setCreatedAt(producer.getCreatedAt());

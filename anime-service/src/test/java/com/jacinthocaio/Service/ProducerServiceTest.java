@@ -1,5 +1,6 @@
 package com.jacinthocaio.Service;
 
+import com.jacinthocaio.commons.ProducerUtils;
 import com.jacinthocaio.domain.Producer;
 import com.jacinthocaio.repository.ProducerHardCodedRepository;
 import org.junit.jupiter.api.*;
@@ -30,13 +31,12 @@ class ProducerServiceTest {
 
     private List<Producer> producersList;
 
+    @InjectMocks
+    private ProducerUtils producerUtils;
+
     @BeforeEach
     void init(){
-        var ufotable = Producer.builder().id(1L).name("ufotable").createdAt(LocalDateTime.now()).build();
-        var witStudio = Producer.builder().id(2L).name("witStudio").createdAt(LocalDateTime.now()).build();
-        var studioGhibli = Producer.builder().id(3L).name("studioGhibli").createdAt(LocalDateTime.now()).build();
-        producersList = new ArrayList<>(List.of(ufotable, witStudio, studioGhibli));
-
+        producersList = producerUtils.newProducerList();
     }
 
     @Test
