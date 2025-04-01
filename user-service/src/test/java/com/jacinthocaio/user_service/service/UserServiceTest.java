@@ -2,7 +2,7 @@ package com.jacinthocaio.user_service.service;
 
 import com.jacinthocaio.user_service.commons.UserUtils;
 import com.jacinthocaio.user_service.dominio.User;
-import com.jacinthocaio.user_service.repository.UserHardCodedRepository;
+import com.jacinthocaio.user_service.repository.UserRepository;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentMatchers;
@@ -10,7 +10,6 @@ import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -27,9 +26,8 @@ import static java.util.Collections.singletonList;
 class UserServiceTest {
     @InjectMocks
     private UserService service;
-
     @Mock
-    private UserHardCodedRepository repository;
+    private UserRepository repository;
 
     private List<User> usersList;
 
@@ -57,7 +55,7 @@ class UserServiceTest {
         var usersListFirst = usersList.getFirst();
         List<User> expectedUserFound = singletonList(usersListFirst);
 
-        BDDMockito.when(repository.findByName(usersListFirst.getFirstName())).thenReturn(expectedUserFound);
+        BDDMockito.when(repository.findByFirstNameIgnoreCase(usersListFirst.getFirstName())).thenReturn(expectedUserFound);
 
         var users = service.findAll(usersListFirst.getFirstName());
         org.assertj.core.api.Assertions.assertThat(users).containsAll(expectedUserFound);
@@ -68,7 +66,7 @@ class UserServiceTest {
     @Order(3)
     void findByName_ReturnsEmptyList_WhenFirstNameIsNotFound() {
         var name = "not-found";
-        BDDMockito.when(repository.findByName(name)).thenReturn(emptyList());
+        BDDMockito.when(repository.findByFirstNameIgnoreCase(name)).thenReturn(emptyList());
         var users = service.findAll(name);
         org.assertj.core.api.Assertions.assertThat(users).isNotNull().isEmpty();
     }
@@ -105,7 +103,7 @@ class UserServiceTest {
                 .lastName("levy")
                 .email("enzolevy@gmail.com")
                 .build();
-        BDDMockito.when(repository.createUser(userToSave)).thenReturn(userToSave);
+        BDDMockito.when(repository.save(userToSave)).thenReturn(userToSave);
         var savedUser = service.createUser(userToSave);
         org.assertj.core.api.Assertions.assertThat(savedUser).isEqualTo(userToSave).hasNoNullFieldsOrProperties();
     }
@@ -149,7 +147,7 @@ class UserServiceTest {
         BDDMockito.when(repository.findById(expectedUserToUpdate.getId()))
                 .thenReturn(Optional.of(expectedUserToUpdate));
 
-        BDDMockito.doNothing().when(repository).uptade(expectedUserToUpdate);
+        BDDMockito.when(repository.save(expectedUserToUpdate)).thenReturn(expectedUserToUpdate);
 
         service.update(expectedUserToUpdate);
 

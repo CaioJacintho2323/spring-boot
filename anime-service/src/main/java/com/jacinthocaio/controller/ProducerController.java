@@ -5,6 +5,7 @@ import com.jacinthocaio.mapper.ProducerMapper;
 import com.jacinthocaio.request.ProducerPostRequest;
 import com.jacinthocaio.request.ProducerPutRequest;
 import com.jacinthocaio.response.ProducerGetResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
@@ -52,7 +53,7 @@ public class ProducerController {
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ProducerGetResponse> save(@RequestBody ProducerPostRequest producerPostRequest, @RequestHeader HttpHeaders headers) {
+    public ResponseEntity<ProducerGetResponse> save(@RequestBody @Valid ProducerPostRequest producerPostRequest, @RequestHeader HttpHeaders headers) {
         var producer = mapper.toProducer(producerPostRequest);
 
         var producerSaved = service.save(producer);
@@ -71,7 +72,7 @@ public class ProducerController {
     }
 
     @PutMapping()
-    public ResponseEntity<Void> update(@RequestBody ProducerPutRequest request) {
+    public ResponseEntity<Void> update(@RequestBody @Valid ProducerPutRequest request) {
         var producerToUpdate = mapper.toProducer(request);
 
         service.updated(producerToUpdate);

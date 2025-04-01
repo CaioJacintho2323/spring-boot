@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.2</version>
+		<version>3.3.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jacinthocaio</groupId>
@@ -17,9 +17,15 @@
 	<properties>
 		<java.version>22</java.version>
 		<org.mapstruct.version>1.6.3</org.mapstruct.version>
+		<commons-core.version>0.0.1-SNAPSHOT</commons-core.version>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.jacinthocaio</groupId>
+			<artifactId>commons-core</artifactId>
+			<version>${commons-core.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>

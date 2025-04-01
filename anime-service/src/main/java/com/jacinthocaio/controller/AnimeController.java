@@ -1,11 +1,14 @@
 package com.jacinthocaio.controller;
 
 import com.jacinthocaio.Service.AnimeService;
+import com.jacinthocaio.exception.DefaultErrorMessage;
+import com.jacinthocaio.exception.NotFoundException;
 import com.jacinthocaio.mapper.AnimeMapper;
 import com.jacinthocaio.request.AnimePostRequest;
 import com.jacinthocaio.request.AnimePutRequest;
 import com.jacinthocaio.response.AnimeGetResponse;
 import com.jacinthocaio.response.AnimePostResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -47,7 +50,7 @@ public class AnimeController {
     }
 
     @PostMapping
-    public ResponseEntity<AnimePostResponse> save(@RequestBody AnimePostRequest animePostRequest) {
+    public ResponseEntity<AnimePostResponse> save(@RequestBody @Valid AnimePostRequest animePostRequest) {
         log.debug("Request to save anime : {}", animePostRequest);
         var postRequest = mapper.toAnime(animePostRequest);
         var save = service.save(postRequest);
@@ -64,12 +67,14 @@ public class AnimeController {
 
 
     @PutMapping()
-    public ResponseEntity<Void> update(@RequestBody AnimePutRequest request) {
+    public ResponseEntity<Void> update(@RequestBody @Valid AnimePutRequest request) {
         log.debug("Request to update anime : {}", request);
         var animeUpdate = mapper.toAnime(request);
         service.updated(animeUpdate);
         return ResponseEntity.noContent().build();
     }
+
+
 
 
 }
