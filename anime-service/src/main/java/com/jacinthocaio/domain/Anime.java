@@ -1,6 +1,7 @@
 package com.jacinthocaio.domain;
 
 
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -9,9 +10,14 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Entity
+@ToString
 public class Anime {
+    @Id
     @EqualsAndHashCode.Include
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String name;
 
 }

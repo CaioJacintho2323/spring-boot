@@ -1,4 +1,7 @@
 package com.jacinthocaio.exception;
 
-public record DefaultErrorMessage(int status,String message) {
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public record DefaultErrorMessage(int status, String message) {
 }

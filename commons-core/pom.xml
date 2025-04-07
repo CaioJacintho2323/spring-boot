@@ -12,7 +12,7 @@
 
     <groupId>com.jacinthocaio</groupId>
     <artifactId>commons-core</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>Commons Core</name>
     <description>Classes utilizadas EM todos os Microserviços</description>
 
@@ -23,6 +23,10 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>

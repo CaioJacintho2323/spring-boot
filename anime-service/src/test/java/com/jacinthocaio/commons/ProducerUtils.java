@@ -14,7 +14,7 @@ public class ProducerUtils {
         var formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSS");
         var localDateTime = LocalDateTime.parse(dateTime, formatter);
 
-        var ufotable = Producer.builder().id(1L).name("ufotable").createdAt(localDateTime).build();
+        var ufotable = Producer.builder().id(1L).name("Ufotable").createdAt(localDateTime).build();
         var witStudio = Producer.builder().id(2L).name("witStudio").createdAt(localDateTime).build();
         var studioGhibli = Producer.builder().id(3L).name("studioGhibli").createdAt(localDateTime).build();
         return new ArrayList<>(List.of(ufotable, witStudio, studioGhibli));

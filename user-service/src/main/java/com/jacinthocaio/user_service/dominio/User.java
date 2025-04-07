@@ -3,6 +3,7 @@ package com.jacinthocaio.user_service.dominio;
 import jakarta.persistence.*;
 import lombok.*;
 
+@With
 @Getter
 @Setter
 @NoArgsConstructor
